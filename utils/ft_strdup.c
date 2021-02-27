@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.h                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 02:38:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:52:22 by avarnier         ###   ########.fr       */
+/*   Created: 2021/02/27 19:19:56 by avarnier          #+#    #+#             */
+/*   Updated: 2021/02/27 19:21:28 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FREE_H
-# define FREE_H
+#include "utils.h"
 
-# include "struct.h"
-# include <stdlib.h>
-# include <stdio.h>
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		len;
+	char	*cpy;
 
-void	free_error(char *s1, char *s2, t_param *param);
-void	free_map_line(char *s, int i, t_param *param);
-void	free_param_error(char *s, t_param *param);
-
-#endif
+	i = 0;
+	len = ft_strlen(s) + 1;
+	if (!(cpy = (char *)malloc(sizeof(char) * len)))
+		return (0);
+	ft_memcpy(cpy, s, len);
+	return (cpy);
+}

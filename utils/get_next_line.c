@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:49:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 03:29:44 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/27 18:29:48 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	ft_strlen_nl(char *s)
 	return (i);
 }
 
-static char	*ft_strjoin_gnl(char *s1, char *s2)
+static char		*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -49,7 +49,7 @@ static char	*ft_strjoin_gnl(char *s1, char *s2)
 	return (cpy);
 }
 
-static char	*ft_strdup_gnl(char *s)
+static char		*ft_strdup_gnl(char *s)
 {
 	int		i;
 	char	*cpy;
@@ -66,7 +66,7 @@ static char	*ft_strdup_gnl(char *s)
 	return (cpy);
 }
 
-int		get_next_line(int fd, char **line)
+int				get_next_line(int fd, char **line)
 {
 	static int	ret;
 	static char buffer[1 + 1];

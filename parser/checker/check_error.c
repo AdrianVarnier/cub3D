@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 03:25:12 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:54:52 by avarnier         ###   ########.fr       */
+/*   Created: 2021/02/27 02:13:21 by avarnier          #+#    #+#             */
+/*   Updated: 2021/02/27 22:38:57 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "check_error.h"
 #include "free.h"
+#include "utils.h"
 
-t_param	*parse(char *pathname);
-
-int main()
+void		check_error(int fd, char *s, t_param *param)
 {
-	int i;
+	int	ret;
+	int	c;
 
-	t_param	*param;
-	param = parse("map/map.cub");
-	i = 0;
-	free(param->north);
-	free(param->south);
-	free(param->west);
-	free(param->east);
-	free(param->sprite);
-	while (param->map[i] != NULL)
+	c = 0;
+	ret = 1;
+	while (c < 8 && ret == 1)
 	{
-		free(param->map[i]);
-		i++;
+		ret = get_next_line(fd, &s);
+		if (check_space(s) == 0)
+		{
+			check_param(s, param);
+			c++;
+		}
+		free(s);
 	}
-	free(param->map[i]);
-	free(param->map);
-	free(param);
-	printf(":)");
-	
-	return (0);
+	if (ret == 0 && c != 8)
+	{
+		free(param);
+		perror("Missing parameter");
+		exit(0);
+	}
+	check_map_line(fd, s, param);
 }
