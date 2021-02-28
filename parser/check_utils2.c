@@ -6,11 +6,11 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:35:22 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 22:21:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 00:43:03 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check_error.h"
+#include "parser.h"
 #include "free.h"
 
 void	check_type(char *s, t_param *param)

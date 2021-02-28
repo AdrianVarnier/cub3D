@@ -6,11 +6,11 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 20:55:14 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 21:07:50 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 00:43:29 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_param.h"
+#include "parser.h"
 
 void	get_north(char *s, t_param *param)
 {

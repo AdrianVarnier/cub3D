@@ -6,13 +6,12 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:10:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:34:31 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 00:43:44 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_param.h"
+#include "parser.h"
 #include "utils.h"
-#include "check_error.h"
 
 void	get_res(char *s, t_param *param)
 {

@@ -6,18 +6,19 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 23:55:05 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:56:54 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 01:04:34 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
+#include "parser.h"
 
 static void	check_one_map(t_param *param)
 {
 	int	i;
 
 	i = 2;
-	while (i < param->mheight + 1)
+	while (i < param->map_height + 1)
 	{
 		if (check_space(param->map[i]) == 1 &&
 		check_space(param->map[i + 1]) == 0)

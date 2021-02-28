@@ -6,11 +6,11 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:05:01 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 22:20:30 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 00:42:20 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "check_error.h"
+#include "parser.h"
 #include "free.h"
 
 void	check_north(char *s, t_param *param)

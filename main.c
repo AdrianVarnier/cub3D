@@ -6,13 +6,12 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 03:25:12 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:54:52 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 01:26:13 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
-
-t_param	*parse(char *pathname);
+#include "parser.h"
 
 int main()
 {
@@ -34,7 +33,7 @@ int main()
 	free(param->map[i]);
 	free(param->map);
 	free(param);
-	printf(":)");
+	printf(":)\n");
 	
 	return (0);
 }
