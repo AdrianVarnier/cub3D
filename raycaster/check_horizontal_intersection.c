@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:25:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 02:43:36 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:04:29 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ double		check_horizontal_intersection(t_param *param, t_player *player,
 	wallx = player->x + (wally - player->y) / tan(angle);
 	stepy = TILE_SIZE * is_ray_up(angle);
 	stepx = TILE_SIZE / tan(angle) * is_ray_left(angle);
-	while (wallx > 0 && wally > 0 && wallx < param->map_width + 2
-	&& wally < param->map_height + 2)
+	while (wallx > 0 && wally > 0 && wallx < (param->map_width + 2) * TILE_SIZE
+	&& wally < (param->map_height + 2) * TILE_SIZE)
 	{
-		if (param->map[(int)wally][(int)wallx] != '1')
+		if (param->map[(int)wally / TILE_SIZE][(int)wallx / TILE_SIZE] == '1')
 		{
 			texture->texture_x = wallx;
 			return (sqrt(pow(player->x - wallx, 2)

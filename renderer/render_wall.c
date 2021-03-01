@@ -6,12 +6,13 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 23:29:43 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 03:23:22 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/01 14:49:59 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "renderer.h"
 #include "raycaster.h"
+#include "stdio.h"
 
 static void	pixel_put(t_image *image, int x, int y, int color)
 {
@@ -21,7 +22,8 @@ static void	pixel_put(t_image *image, int x, int y, int color)
 	*(int *)dst = color;
 }
 
-static void	put_ceil(int x, int wall_stripe_height, t_param *param, t_image *image)
+static void	put_ceil(int x, int wall_stripe_height,
+			t_param *param, t_image *image)
 {
 	int	c;
 
@@ -42,26 +44,29 @@ static void	put_floor(int c, int x, t_param *param, t_image *image)
 	}
 }
 
-static void	put_wall(int wall_stripe_height, int x, t_param *param, t_image *image)
+static void	put_wall(int wall_stripe_height, int x,
+			t_param *param, t_image *image)
 {
 	int	c;
 
 	c = 0;
 	while (c <= wall_stripe_height)
 	{
-		pixel_put(image, x, (param->height - 1) / 2 - wall_stripe_height / 2 + c, 0xFF0000);
+		pixel_put(image, x, (param->height - 1) / 2
+		- wall_stripe_height / 2 + c, 0xFF0000);
 		c++;
 	}
 }
 
 void		render_wall(t_param *param, t_image *image, double distance, int x)
 {
-	int		c;	
+	int		c;
 	int		wall_stripe_height;
 	double	projection_plane_distance;
 
 	c = 0;
-	wall_stripe_height = TILE_SIZE / distance * (param->width / 2 / tan(FOV / 2)) + 0.1;
+	projection_plane_distance = param->width / 2 / tan(degree_to_radian(FOV) / 2);
+	wall_stripe_height = TILE_SIZE / distance * projection_plane_distance + 0.1;
 	if (wall_stripe_height >= param->height)
 		wall_stripe_height = param->height - 1;
 	put_ceil(x * WALL_STRIPE_WIDTH, wall_stripe_height, param, image);
