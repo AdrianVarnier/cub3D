@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 22:12:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 01:23:05 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/01 02:34:51 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@
 #include "parser.h"
 #include "init.h"
 
-t_param	*parse(char *pathname)
+void	parse(char *pathname, t_param *param)
 {
 	int		fd;
 	char	*s;
-	t_param	*param;
 
 	s = NULL;
 	check_pathname(pathname);
@@ -30,9 +29,6 @@ t_param	*parse(char *pathname)
 		perror("Cannot open file.cub");
 		exit(0);
 	}
-	if (!(param = (t_param *)malloc(sizeof(t_param))))
-		return (NULL);
-	init_param(param);
 	check_error(fd, s, param);
 	close(fd);
 	fd = open(pathname, O_RDONLY);
@@ -43,5 +39,4 @@ t_param	*parse(char *pathname)
 	get_all_param(fd, s, param);
 	close(fd);
 	check_map(param);
-	return (param);
 }

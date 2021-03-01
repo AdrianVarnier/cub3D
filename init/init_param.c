@@ -6,12 +6,11 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 18:33:18 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 18:54:38 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 14:42:56 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "struct.h"
+#include "init.h"
 
 void	init_param(t_param *param)
 {

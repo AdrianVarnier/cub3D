@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_param_error.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 01:38:24 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:51:41 by avarnier         ###   ########.fr       */
+/*   Created: 2021/02/28 14:45:38 by avarnier          #+#    #+#             */
+/*   Updated: 2021/02/28 14:48:01 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "struct.h"
-
-void	free_error(char *s1, char *s2, t_param *param)
-{
-	free(s2);
-	free(param);
-	perror(s1);
-	exit(0);
-}
-
-void	free_map_line(char *s, int i, t_param *param)
-{
-	int c;
-
-	c = 0;
-	free(s);
-	while (c < i)
-	{
-		free(param->map[c]);
-		c++;
-	}
-	free(param->map);
-	free(param);
-	perror("map line malloc error");
-	exit(0);
-}
+#include "free.h"
 
 void	free_param_error(char *s, t_param *param)
 {

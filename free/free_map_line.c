@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   free_map_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 18:49:05 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 02:41:18 by avarnier         ###   ########.fr       */
+/*   Created: 2021/02/28 14:44:55 by avarnier          #+#    #+#             */
+/*   Updated: 2021/02/28 14:45:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#include "free.h"
 
-# include "struct.h"
-# include "stdio.h"
-# include <stdlib.h>
+void	free_map_line(char *s, int i, t_param *param)
+{
+	int c;
 
-void	init_param(t_param *param);
-void	init_player(t_param *param, t_player *player);
-void	init_game(t_game **game);
-
-#endif
+	c = 0;
+	free(s);
+	while (c < i)
+	{
+		free(param->map[c]);
+		c++;
+	}
+	free(param->map);
+	free(param);
+	perror("map line malloc error");
+	exit(0);
+}

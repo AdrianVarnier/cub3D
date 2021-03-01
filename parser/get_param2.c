@@ -6,14 +6,14 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:10:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:43:44 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/02/28 14:51:04 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "utils.h"
 
-void	get_res(char *s, t_param *param)
+static void	get_resolution(char *s, t_param *param)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ void	get_res(char *s, t_param *param)
 		param->width = 1080;
 }
 
-void	get_floor(char *s, t_param *param)
+static void	get_floor(char *s, t_param *param)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ void	get_floor(char *s, t_param *param)
 	param->floor = get_color(s + i);
 }
 
-void	get_ceil(char *s, t_param *param)
+static void	get_ceil(char *s, t_param *param)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ void	get_ceil(char *s, t_param *param)
 	param->ceil = get_color(s + i);
 }
 
-void	get_param(char *s, t_param *param)
+static void	get_param(char *s, t_param *param)
 {
 	int	i;
 
@@ -60,7 +60,7 @@ void	get_param(char *s, t_param *param)
 	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
 		i++;
 	if (s[i] == 'R')
-		get_res(s, param);
+		get_resolution(s, param);
 	if (s[i] == 'N')
 		get_north(s, param);
 	if (s[i] == 'S' && s[i + 1] == 'O')
@@ -77,7 +77,7 @@ void	get_param(char *s, t_param *param)
 		get_ceil(s, param);
 }
 
-void	get_all_param(int fd, char *s, t_param *param)
+void		get_all_param(int fd, char *s, t_param *param)
 {
 	int	c;
 
