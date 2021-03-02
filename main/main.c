@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:35:39 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 14:44:32 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "raycaster.h"
 #include "init.h"
 #include "mlx.h"
+#include "input.h"
 
 int	image_loop(t_game *game)
 {
@@ -32,12 +33,16 @@ int	main(int argc, char **argv)
 {
 	t_game	*game;
 
+	if (argc != 2)
+		perror("Wrong argument number");
 	init_game(&game);
 	parse(argv[1], game->param);
 	init_player(game->param, game->player);
 	game->minilibx->minilibx = mlx_init();
 	game->minilibx->window = mlx_new_window(game->minilibx->minilibx,
 	game->param->width, game->param->height, "cub3d");
+	mlx_hook(game->minilibx->window, 2, 1L<<0, movement_press, game);
+	mlx_hook(game->minilibx->window, 3, 1L<<1, movement_released, game->player);
 	mlx_loop_hook(game->minilibx->minilibx, image_loop, game);
 	mlx_loop(game->minilibx->minilibx);
 }

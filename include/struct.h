@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 11:46:59 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 14:26:29 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct	s_param
 
 typedef struct	s_player
 {
-	int			x;
-	int			y;
+	double		x;
+	double		y;
 	int			turn_direction;
 	int			walk_direction;
 	double		rotation_angle;

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:25:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:04:29 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:38:02 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ static int	is_ray_down(double angle)
 	if (angle > M_PI && angle < 2 * M_PI)
 		return (TILE_SIZE);
 	else
-		return (0);
+		return (-1);
 }
 
 static int	is_ray_left(double angle)
 {
 	if ((angle > M_PI / 2 && angle < 3 * M_PI / 2 && tan(angle) > 0)
-	|| (!(angle > M_PI / 2 && angle < 3 * M_PI / 2) && tan(angle) < 0))
+	|| ((!(angle > M_PI / 2 && angle < 3 * M_PI / 2)) && tan(angle) < 0))
 		return (-1);
 	else
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 19:58:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:03:53 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 15:38:40 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_ray_right(double angle)
 	if (!(angle > M_PI / 2 && angle < 3 * M_PI / 2))
 		return (TILE_SIZE);
 	else
-		return (0);
+		return (-1);
 }
 
 static int	is_ray_up(double angle)
