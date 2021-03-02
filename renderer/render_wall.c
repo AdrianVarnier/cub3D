@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 23:29:43 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:49:59 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 21:51:23 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	pixel_put(t_image *image, int x, int y, int color)
 	*(int *)dst = color;
 }
 
-static void	put_ceil(int x, int wall_stripe_height,
+/*static void	put_ceil(int x, int wall_stripe_height,
 			t_param *param, t_image *image)
 {
 	int	c;
@@ -42,7 +42,7 @@ static void	put_floor(int c, int x, t_param *param, t_image *image)
 		pixel_put(image, x, c, param->floor);
 		c++;
 	}
-}
+}*/
 
 static void	put_wall(int wall_stripe_height, int x,
 			t_param *param, t_image *image)
@@ -66,11 +66,11 @@ void		render_wall(t_param *param, t_image *image, double distance, int x)
 
 	c = 0;
 	projection_plane_distance = param->width / 2 / tan(degree_to_radian(FOV) / 2);
-	wall_stripe_height = TILE_SIZE / distance * projection_plane_distance + 0.1;
+	wall_stripe_height = TILE_SIZE / distance * projection_plane_distance;
 	if (wall_stripe_height >= param->height)
 		wall_stripe_height = param->height - 1;
-	put_ceil(x * WALL_STRIPE_WIDTH, wall_stripe_height, param, image);
+//	put_ceil(x * WALL_STRIPE_WIDTH, wall_stripe_height, param, image);
 	put_wall(wall_stripe_height, x * WALL_STRIPE_WIDTH, param, image);
-	c = (param->height - 1) / 2 + wall_stripe_height / 2;
-	put_floor(c, x * WALL_STRIPE_WIDTH, param, image);
+//	c = (param->height - 1) / 2 + wall_stripe_height / 2;
+//	put_floor(c, x * WALL_STRIPE_WIDTH, param, image);
 }

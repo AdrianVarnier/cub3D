@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:32:41 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:49:33 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/02 19:52:42 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "struct.h"
 
 # define FOV 60
-# define TILE_SIZE 32
+# define TILE_SIZE 64
 # define WALL_STRIPE_WIDTH 1
 
 double	check_horizontal_intersection(t_param *param, t_player *player,
