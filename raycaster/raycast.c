@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/03 14:13:49 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 21:30:26 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static double	get_smallest_distance(double d1, double d2,
 {
 	double	correction;
 
-	correction = 1;
+	correction = cos(angle - player->rotation_angle);
 //	if (angle > player->rotation_angle)
 //		correction = cos(angle - player->rotation_angle);
 //	if (angle < player->rotation_angle)

@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:15:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/03 15:41:43 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 22:18:36 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int movement_press(int key, t_game *game)
 	double	move_step;
 	double	new_positionx;
 	double	new_positiony;
-
+	
 	if (key == UP)
 		game->player->walk_direction = 1;
 	if (key == DOWN)
@@ -39,10 +39,8 @@ int movement_press(int key, t_game *game)
 	game->player->rotation_angle = normalized_angle(game->player->rotation_angle + game->player->turn_direction *
 	game->player->rotation_speed);
 	move_step = game->player->walk_direction * game->player->move_speed;
-	new_positionx = game->player->x + cos(game->player->rotation_angle) * move_step
-	* offset(game->player->rotation_angle);
-	new_positiony = game->player->y + sin(game->player->rotation_angle) * move_step
-	* offset(game->player->rotation_angle);
+	new_positionx = game->player->x + cos(game->player->rotation_angle) * move_step;
+	new_positiony = game->player->y - sin(game->player->rotation_angle) * move_step;
 	if (game->param->map[(int)(new_positiony / TILE_SIZE)][(int)(new_positionx / TILE_SIZE)] != '1')
 	{
 		game->player->x = new_positionx;

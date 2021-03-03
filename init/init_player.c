@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:22:47 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 14:50:25 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 21:38:17 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void		init_player(t_param *param, t_player *player)
 	player->turn_direction = 0;
 	player->walk_direction = 0;
 	get_rotation_angle(param, player);
-	player->move_speed = 2;
+	player->move_speed = 3;
 	player->rotation_speed = 2 * (M_PI / 180);
 }
