@@ -6,12 +6,21 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:15:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/02 19:48:14 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:41:43 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input.h"
 #include "raycaster.h"
+
+static int	offset(double angle)
+{
+	if (angle > 3 * M_PI / 4 && angle < 5 *  M_PI / 4)
+		return (1);
+	if (angle > 7 * M_PI / 4 || angle < M_PI / 4)
+		return (1);
+	return (-1);
+}
 
 int movement_press(int key, t_game *game)
 {
@@ -27,11 +36,13 @@ int movement_press(int key, t_game *game)
 		game->player->turn_direction = 1;
 	if (key == TURN_RIGHT)
 		game->player->turn_direction = -1;
-	game->player->rotation_angle = game->player->rotation_angle + game->player->turn_direction *
-	game->player->rotation_speed;
+	game->player->rotation_angle = normalized_angle(game->player->rotation_angle + game->player->turn_direction *
+	game->player->rotation_speed);
 	move_step = game->player->walk_direction * game->player->move_speed;
-	new_positionx = game->player->x + cos(game->player->rotation_angle) * move_step;
-	new_positiony = game->player->y + sin(game->player->rotation_angle) * move_step;
+	new_positionx = game->player->x + cos(game->player->rotation_angle) * move_step
+	* offset(game->player->rotation_angle);
+	new_positiony = game->player->y + sin(game->player->rotation_angle) * move_step
+	* offset(game->player->rotation_angle);
 	if (game->param->map[(int)(new_positiony / TILE_SIZE)][(int)(new_positionx / TILE_SIZE)] != '1')
 	{
 		game->player->x = new_positionx;

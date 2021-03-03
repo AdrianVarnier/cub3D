@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:25:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/03 10:38:32 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 14:15:13 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ double	check_vertical_intersection(t_param *param, t_player *player, t_texture *
 		xintercept = xintercept + TILE_SIZE;
 	double yintercept = player->y + (player->x - xintercept) * tan(angle);
 	double xstep = TILE_SIZE;
-	if (angle > M_PI / 2 && angle < 3 * M_PI)
+	if (angle > M_PI / 2 && angle < 3 * M_PI / 2)
 		xstep = xstep * -1;
 	double ystep = TILE_SIZE * tan(angle);
 	if (angle > 0 && angle < M_PI && ystep > 0)
 		ystep = ystep * -1;
-	if ((angle > M_PI || angle < 2 * M_PI) && ystep < 0)
+	if ((angle > M_PI && angle < 2 * M_PI) && ystep < 0)
 		ystep = ystep * -1;
 	double nexthorztouchx = xintercept;
 	double nexthorztouchy = yintercept;
