@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/02 19:57:13 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 00:52:29 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,9 @@ void			raycast(t_param *param, t_player *player, t_image *image,
 	ray_number = param->width / WALL_STRIPE_WIDTH;
 	while (x < ray_number)
 	{
-		distance = get_smallest_distance(
-		check_horizontal_intersection(param, player, texture, angle),
-		check_vertical_intersection(param, player, texture, angle),
-		angle, player);
+		distance = get_smallest_distance(check_horizontal_intersection(param, player, texture, angle),
+		check_vertical_intersection(param, player, texture, angle), angle, player);	
+//		distance = check_vertical_intersection(param, player, texture, angle);
 		render_wall(param, image, distance, x);
 		angle = normalized_angle(angle - degree_to_radian(FOV) / ray_number);
 		x++;
