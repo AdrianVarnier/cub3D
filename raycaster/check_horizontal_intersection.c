@@ -6,18 +6,18 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 16:25:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/03 01:10:49 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/03 10:38:32 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycaster.h"
 
 double	check_horizontal_intersection(t_param *param, t_player *player, t_texture *texture, double angle)
-{	
+{
 	double yintercept = floor(player->y / TILE_SIZE) * TILE_SIZE;
 	if (angle > M_PI && angle < 2 * M_PI)
 		yintercept = yintercept + TILE_SIZE;
-	double xintercept = player->x + (yintercept - player->y) / tan(angle);
+	double xintercept = player->x + (player->y - yintercept) / tan(angle);
 	double ystep = TILE_SIZE;
 	if (angle > 0 && angle < M_PI)
 		ystep = ystep * -1;
@@ -46,11 +46,11 @@ double	check_horizontal_intersection(t_param *param, t_player *player, t_texture
 }
 
 double	check_vertical_intersection(t_param *param, t_player *player, t_texture *texture, double angle)
-{	
+{
 	double xintercept = floor(player->x / TILE_SIZE) * TILE_SIZE;
 	if (angle > 3 * M_PI / 2 || angle < M_PI / 2)
 		xintercept = xintercept + TILE_SIZE;
-	double yintercept = player->y + (xintercept - player->x) * tan(angle);
+	double yintercept = player->y + (player->x - xintercept) * tan(angle);
 	double xstep = TILE_SIZE;
 	if (angle > M_PI / 2 && angle < 3 * M_PI)
 		xstep = xstep * -1;
