@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/03 21:30:26 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/05 00:20:40 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@ static double	get_smallest_distance(double d1, double d2,
 	double	correction;
 
 	correction = cos(angle - player->rotation_angle);
-//	if (angle > player->rotation_angle)
-//		correction = cos(angle - player->rotation_angle);
-//	if (angle < player->rotation_angle)
-//		correction = cos(player->rotation_angle - angle);
 	if (d1 == -1)
 		return (d2 * correction);
 	if (d2 == -1)
@@ -62,7 +58,6 @@ void			raycast(t_param *param, t_player *player, t_image *image,
 	{
 		distance = get_smallest_distance(check_horizontal_intersection(param, player, texture, angle),
 		check_vertical_intersection(param, player, texture, angle), angle, player);	
-//		distance = check_vertical_intersection(param, player, texture, angle);
 		render_wall(param, image, distance, x);
 		angle = normalized_angle(angle - degree_to_radian(FOV) / ray_number);
 		x++;
