@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/05 00:20:40 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/06 14:17:18 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ double			normalized_angle(double angle)
 	return (angle);
 }
 
-void			raycast(t_param *param, t_player *player, t_image *image,
-				t_texture *texture)
+void			raycast(t_game *game)
 {
 	int		x;
 	double	angle;
@@ -52,13 +51,13 @@ void			raycast(t_param *param, t_player *player, t_image *image,
 	double	ray_number;
 
 	x = 0;
-	angle = normalized_angle(player->rotation_angle + degree_to_radian(FOV) / 2);
-	ray_number = param->width / WALL_STRIPE_WIDTH;
+	angle = normalized_angle(game->player->rotation_angle + degree_to_radian(FOV) / 2);
+	ray_number = game->param->width;
 	while (x < ray_number)
 	{
-		distance = get_smallest_distance(check_horizontal_intersection(param, player, texture, angle),
-		check_vertical_intersection(param, player, texture, angle), angle, player);	
-		render_wall(param, image, distance, x);
+		distance = get_smallest_distance(check_horizontal_intersection(game->param, game->player, game->texture, angle),
+		check_vertical_intersection(game->param, game->player, game->texture, angle), angle, game->player);	
+		render(game, distance, x);
 		angle = normalized_angle(angle - degree_to_radian(FOV) / ray_number);
 		x++;
 	}

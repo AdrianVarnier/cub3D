@@ -6,12 +6,13 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:15:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/05 01:19:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/05 04:10:59 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "input.h"
 #include "raycaster.h"
+#include "free.h"
 
 static void	move_up_down_turn(t_game *game)
 {
@@ -53,8 +54,10 @@ static void	move_left_right(t_game *game)
 	}
 }
 
-int			movement_press(int key, t_game *game)
+int			press_input(int key, t_game *game)
 {
+	if (key == ESCAPE)
+		free_exit(game);
 	if (key == UP || key == LEFT)
 		game->player->walk_direction = 1;
 	if (key == DOWN || key == RIGHT)
@@ -70,7 +73,7 @@ int			movement_press(int key, t_game *game)
 	return (0);
 }
 
-int			movement_released(int key, t_player *player)
+int			released_input(int key, t_player *player)
 {
 	if (key == UP)
 		player->walk_direction = 0;
