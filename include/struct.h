@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/02 14:26:29 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/06 19:05:40 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,14 @@ typedef struct	s_player
 
 typedef struct	s_texture
 {
-	int			texture_x;
-	int			texture_y;
+	double			texturex;
+	double			texturey;
+	char			orientation;
+	struct s_image	*north;
+	struct s_image	*south;
+	struct s_image	*east;
+	struct s_image	*west;
+	struct s_image	*sprite;
 }				t_texture;
 
 typedef struct	s_image
@@ -61,6 +67,8 @@ typedef struct	s_image
 	int			ls;
 	int			bpp;
 	int			endian;
+	int			width;
+	int			height;
 }				t_image;
 
 typedef struct	s_minilibx

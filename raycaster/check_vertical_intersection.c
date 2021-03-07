@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 19:58:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/05 00:19:33 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/06 17:39:54 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,40 @@ static int	ray_right(double angle)
 	return (0);
 }
 
-double		check_vertical_intersection(t_param *param, t_player *player,
+double		check_vertical_intersection1(t_param *param, t_player *player,
+			t_texture *texture, double angle)
+{
+	double	wallx;
+	double	wally;
+	double	stepx;
+	double	stepy;
+	double	offset;
+
+	wallx = floor(player->x / TILE_SIZE) * TILE_SIZE + ray_right(angle);
+	wally = player->y + (player->x - wallx) * tan(angle);
+	stepx = TILE_SIZE * ray_left1(angle);
+	stepy = TILE_SIZE * tan(angle);
+	if ((angle > 0 && angle < M_PI && stepy > 0) ||
+	((angle > M_PI && angle < 2 * M_PI) && stepy < 0))
+		stepy = stepy * -1;
+	offset = ray_left2(angle);
+	while (wallx >= 0 && wallx < (param->map_width + 2) * TILE_SIZE
+	&& wally >= 0 && wally < (param->map_height + 2) * TILE_SIZE)
+	{
+		if (param->map[(int)floor(wally / TILE_SIZE)]
+		[(int)floor((wallx - offset) / TILE_SIZE)] == '1')
+		{
+			texture->texturey = wally;
+			return
+			(sqrt(pow(player->x - wallx, 2) + pow(player->y - wally, 2)));
+		}
+		wallx = wallx + stepx;
+		wally = wally + stepy;
+	}
+	return (-1);
+}
+
+double		check_vertical_intersection2(t_param *param, t_player *player,
 			t_texture *texture, double angle)
 {
 	double	wallx;
