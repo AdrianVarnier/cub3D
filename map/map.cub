@@ -1,9 +1,9 @@
 R 1920 1080
 
-NO ./textures/Mur-Brique-Bleu.xpm
-SO ./textures/Mur-Brique-Rouge.xpm
-WE ./textures/Mur-Brique-Vert.xpm
-EA ./textures/Mur-Brique-Violet.xpm
+NO ./textures/bluestone.xpm
+SO ./textures/eagle.xpm
+WE ./textures/greystone.xpm
+EA ./textures/redbrick.xpm
 S ./textures/pillar.xpm
 
 F 91,91,91
