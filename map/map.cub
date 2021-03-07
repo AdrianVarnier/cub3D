@@ -1,13 +1,13 @@
 R 1920 1080
 
-NO ./textures/bluestone.xpm
-SO ./textures/eagle.xpm
-WE ./textures/greystone.xpm
-EA ./textures/redbrick.xpm
-S ./textures/pillar.xpm
+NO ./textures/Wall1.xpm
+SO ./textures/Wall2.xpm
+WE ./textures/Wall3.xpm
+EA ./textures/Wall4.xpm
+S ./textures/Sprite.xpm
 
-F 91,91,91
-C 21,21,21
+F 58,50,119
+C 103,114,169
 
 11111111111111
 10000000000001
