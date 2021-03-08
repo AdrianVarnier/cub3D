@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:51:22 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/06 18:37:10 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/08 00:57:01 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	init_texture(t_game *game)
 	game->param->west, &game->texture->west->width, &game->texture->west->height);
 	game->texture->west->data = mlx_get_data_addr(game->texture->west->image,
 	&game->texture->west->bpp, &game->texture->west->ls, &game->texture->west->endian);
-//	game->texture->sprite = mlx_xpm_file_to_image(game->minilibx->minilibx,
-//	game->param->sprite, &game->texture->sprite->width, &game->texture->sprite->height);
-//	game->texture->sprite->data = mlx_get_data_addr(game->texture->sprite->image,
-//	&game->texture->sprite->bpp, &game->texture->sprite->ls, &game->texture->sprite->endian);
+	game->texture->sprite->image = mlx_xpm_file_to_image(game->minilibx->minilibx,
+	game->param->sprite, &game->texture->sprite->width, &game->texture->sprite->height);
+	game->texture->sprite->data = mlx_get_data_addr(game->texture->sprite->image,
+	&game->texture->sprite->bpp, &game->texture->sprite->ls, &game->texture->sprite->endian);
 }

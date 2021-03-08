@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:02:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/07 17:40:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/08 00:39:09 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int			get_texture_pixel_north(t_texture *texture, double y)
 	int		color;
 	double	x;
 
-	x = fmod(texture->texturex, TILE_SIZE) / TILE_SIZE * texture->north->width;
-	y = y * texture->north->height;
+	x = fmod(texture->texturex, TILE_SIZE) / TILE_SIZE * texture->north->width - 1;
+	y = y * texture->north->height - 1;
 	if (x < 0)
 		x = 0;
 	if (y < 0)
 		y = 0;
-	color = *(int *)(texture->north->data + ((int)y * texture->north->ls + (int)x * (texture->north->bpp / 8)));
+	color = *(int *)(texture->north->data + ((int)y * texture->north->ls + (int)x * (texture->north->bpp / 8))) + 0.1;
 	return (color);
 }
 
@@ -34,8 +34,8 @@ int			get_texture_pixel_south(t_texture *texture, double y)
 	int		color;
 	double	x;
 
-	x = fmod(texture->texturex, TILE_SIZE) / TILE_SIZE * texture->south->width;
-	y = y *  texture->south->height;
+	x = fmod(texture->texturex, TILE_SIZE) / TILE_SIZE * texture->south->width - 1;
+	y = y *  texture->south->height - 1;
 	if (x < 0)
 		x = 0;
 	if (y < 0)
@@ -49,8 +49,8 @@ int			get_texture_pixel_east(t_texture *texture, double y)
 	int		color;
 	double	x;
 
-	x = fmod(texture->texturey, TILE_SIZE) / TILE_SIZE * texture->east->width;
-	y = y *  texture->east->height;
+	x = fmod(texture->texturey, TILE_SIZE) / TILE_SIZE * texture->east->width - 1;
+	y = y *  texture->east->height - 1;
 	if (x < 0)
 		x = 0;
 	if (y < 0)
@@ -64,8 +64,8 @@ int			get_texture_pixel_west(t_texture *texture, double y)
 	int		color;
 	double	x;
 
-	x = fmod(texture->texturey, TILE_SIZE) / TILE_SIZE * texture->west->width;
-	y = y *  texture->west->height;
+	x = fmod(texture->texturey, TILE_SIZE) / TILE_SIZE * texture->west->width - 1;
+	y = y *  texture->west->height - 1;
 	if (x < 0)
 		x = 0;
 	if (y < 0)
