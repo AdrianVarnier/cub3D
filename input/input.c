@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:15:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/05 04:10:59 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/08 16:15:01 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int			press_input(int key, t_game *game)
 {
 	if (key == ESCAPE)
 		free_exit(game);
-	if (key == UP || key == LEFT)
+	if (key == UP || key == RIGHT)
 		game->player->walk_direction = 1;
-	if (key == DOWN || key == RIGHT)
+	if (key == DOWN || key == LEFT)
 		game->player->walk_direction = -1;
-	if (key == TURN_LEFT)
-		game->player->turn_direction = 1;
 	if (key == TURN_RIGHT)
+		game->player->turn_direction = 1;
+	if (key == TURN_LEFT)
 		game->player->turn_direction = -1;
 	if (key == LEFT || key == RIGHT)
 		move_left_right(game);
