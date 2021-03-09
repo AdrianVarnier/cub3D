@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/08 16:12:00 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 02:10:42 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ static char		get_orientation(double d1, double d2,
 	if (d2 == -1)
 		d2 = d1 + 1;
 	if (fabs(d1 - d2) < pow(10, -6))
-		return (get_orientation(check_horizontal_intersection2(game->param, game->player, game->texture,
-		angle + M_PI / 2 / game->param->width),
-		check_vertical_intersection2(game->param, game->player, game->texture, angle + M_PI / 2 / game->param->width),
+	{
+		return (get_orientation(check_horizontal_intersection2(game->param,
+		game->player, game->texture, angle + M_PI / 2 / game->param->width),
+		check_vertical_intersection2(game->param, game->player,
+		game->texture, angle + M_PI / 2 / game->param->width),
 		angle + M_PI / 2 / game->param->width, game));
+	}
 	if (d1 > d2)
 	{
 		if (angle > M_PI / 2 && angle < 3 * M_PI / 2)
@@ -32,13 +35,10 @@ static char		get_orientation(double d1, double d2,
 		else
 			return ('E');
 	}
+	if (angle > 0 && angle < M_PI)
+		return ('N');
 	else
-	{
-		if (angle > 0 && angle < M_PI)
-			return ('N');
-		else
-			return ('S');
-	}
+		return ('S');
 }
 
 static double	get_smallest_distance(double d1, double d2,
@@ -80,16 +80,21 @@ void			raycast(t_game *game)
 	double	projection_plane_distance;
 
 	x = 0;
-	projection_plane_distance = game->param->width / 2 / tan(degree_to_radian(FOV) / 2);
+	projection_plane_distance = game->param->width / 2
+	/ tan(degree_to_radian(FOV) / 2);
 	ray_number = game->param->width;
 	while (x < ray_number)
 	{
-		angle = normalized_angle(game->player->rotation_angle + atan((x - ray_number / 2) / projection_plane_distance));
-		distance = get_smallest_distance(check_horizontal_intersection1(game->param, game->player, game->texture, angle),
-		check_vertical_intersection1(game->param, game->player, game->texture, angle), angle, game->player);	
+		angle = normalized_angle(game->player->rotation_angle
+		+ atan((x - ray_number / 2) / projection_plane_distance));
+		distance = get_smallest_distance(check_horizontal_intersection1(
+		game->param, game->player, game->texture, angle),
+		check_vertical_intersection1(game->param, game->player,
+		game->texture, angle), angle, game->player);
 		game->texture->orientation = get_orientation(
-		check_horizontal_intersection2(game->param, game->player, game->texture, angle),
- 		check_vertical_intersection2(game->param, game->player, game->texture, angle), angle, game);
+		check_horizontal_intersection2(game->param, game->player,
+		game->texture, angle), check_vertical_intersection2(game->param,
+		game->player, game->texture, angle), angle, game);
 		render(game, distance, x);
 		x++;
 	}

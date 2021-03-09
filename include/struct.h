@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/06 19:05:40 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 00:05:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ typedef struct	s_image
 	int			height;
 }				t_image;
 
-typedef struct	s_minilibx
+typedef struct	s_mlx
 {
-	void		*minilibx;
+	void		*mlx;
 	void		*window;
-}				t_minilibx;
+}				t_mlx;
 
 typedef struct	s_game
 {
@@ -83,7 +83,7 @@ typedef struct	s_game
 	struct s_player		*player;
 	struct s_texture	*texture;
 	struct s_image		*image;
-	struct s_minilibx	*minilibx;
+	struct s_mlx		*mlx;
 }				t_game;
 
 #endif
