@@ -6,12 +6,13 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 00:20:15 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 16:00:48 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "raycaster.h"
+#include "renderer.h"
 #include "init.h"
 #include "mlx.h"
 #include "input.h"
@@ -23,6 +24,7 @@ int	image_loop(t_game *game)
 	game->image->data = mlx_get_data_addr(game->image->image,
 	&game->image->bpp, &game->image->ls, &game->image->endian);
 	raycast(game);
+	render_sprite(game);
 	mlx_put_image_to_window(game->mlx->mlx,
 	game->mlx->window, game->image->image, 0, 0);
 	mlx_destroy_image(game->mlx->mlx, game->image->image);
@@ -41,6 +43,7 @@ int	main(int argc, char **argv)
 	init_game(&game);
 	parse(argv[1], game->param);
 	init_player(game->param, game->player);
+	init_sprite(game->sprite, game->param);
 	game->mlx->mlx = mlx_init();
 	init_texture(game);
 	game->mlx->window = mlx_new_window(game->mlx->mlx,

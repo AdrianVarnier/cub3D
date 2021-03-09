@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 02:10:42 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:43:58 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void			raycast(t_game *game)
 	while (x < ray_number)
 	{
 		angle = normalized_angle(game->player->rotation_angle
-		+ atan((x - ray_number / 2) / projection_plane_distance));
+		- atan((x - ray_number / 2) / projection_plane_distance));
 		distance = get_smallest_distance(check_horizontal_intersection1(
 		game->param, game->player, game->texture, angle),
 		check_vertical_intersection1(game->param, game->player,

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 04:01:23 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 00:16:36 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:41:17 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	free_exit2(t_game *game)
 	free(game->texture->sprite);
 	free(game->texture);
 	free(game->image);
-	mlx_destroy_display(game->mlx->mlx);
+//	mlx_destroy_display(game->mlx->mlx);
 	free(game->mlx->mlx);
 	free(game->mlx);
 	free(game);

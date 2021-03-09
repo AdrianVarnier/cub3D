@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 02:06:11 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 00:06:08 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:39:51 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	init_game(t_game **game)
 	init_param((*game)->param);
 	if (!((*game)->player = (t_player *)malloc(sizeof(t_player))))
 		(*game)->player = NULL;
+	if (!((*game)->sprite = (t_sprite *)malloc(sizeof(t_sprite))))
+		(*game)->sprite = NULL;
 	if (!((*game)->texture = (t_texture *)malloc(sizeof(t_texture))))
 		(*game)->texture = NULL;
 	if (!((*game)->texture->north = (t_image *)malloc(sizeof(t_image))))

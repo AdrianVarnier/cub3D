@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 00:05:22 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:18:07 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,17 @@ typedef struct	s_mlx
 	void		*window;
 }				t_mlx;
 
+typedef struct	s_sprite
+{
+	double	*x;
+	double	*y;
+}				t_sprite;
+
 typedef struct	s_game
 {
 	struct s_param		*param;
 	struct s_player		*player;
+	struct s_sprite		*sprite;
 	struct s_texture	*texture;
 	struct s_image		*image;
 	struct s_mlx		*mlx;
