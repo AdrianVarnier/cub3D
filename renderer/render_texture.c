@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:02:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 13:57:26 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:19:47 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,19 @@ int			get_texture_pixel_west(t_texture *texture, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->west->data + ((int)y * texture->west->ls + (int)x * (texture->west->bpp / 8)));
+	return (color);
+}
+
+int			get_texture_pixel_sprite(t_texture *texture, double x, double y)
+{
+		int		color;
+
+	x = x * texture->sprite->width - 1;
+	y = y * texture->sprite->height - 1;
+	if (x < 0)
+		x = 0;
+	if (y < 0)
+		y = 0;
+	color = *(int *)(texture->sprite->data + ((int)y * texture->sprite->ls + (int)x * (texture->sprite->bpp / 8)));
 	return (color);
 }

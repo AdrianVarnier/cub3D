@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 23:21:32 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:22:09 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	image_loop(t_game *game)
 	game->image->data = mlx_get_data_addr(game->image->image,
 	&game->image->bpp, &game->image->ls, &game->image->endian);
 	raycast(game);
-//	render_sprite(game);
+	render_sprite(game);
 	mlx_put_image_to_window(game->mlx->mlx,
 	game->mlx->window, game->image->image, 0, 0);
 	mlx_destroy_image(game->mlx->mlx, game->image->image);

@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 14:20:29 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 14:35:32 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:23:30 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	get_sprite_position(t_sprite *sprite, t_param *param)
 		{
 			if (param->map[j][i] == '2')
 			{
-				sprite->x[k] = i * TILE_SIZE + TILE_SIZE / 2;
-				sprite->y[k] = j * TILE_SIZE + TILE_SIZE / 2;
+				sprite->x[k] = i * TILE_SIZE;
+				sprite->y[k] = j * TILE_SIZE;
 				k++;
 			}
 			i++;
