@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 23:29:43 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 15:59:31 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:56:07 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	pixel_put(t_image *image, int x, int y, int color)
 	*(int *)dst = color;
 }
 
-static void	render_ceil(t_game *game, int x, int wall_stripe_height)
+static void	render_ceil(t_game *game, int x, double wall_stripe_height)
 {
 	int	c;
 
@@ -33,7 +33,7 @@ static void	render_ceil(t_game *game, int x, int wall_stripe_height)
 	}
 }
 
-static void	render_floor(t_game *game, int x, int wall_stripe_height)
+static void	render_floor(t_game *game, int x, double wall_stripe_height)
 {
 	int	c;
 
@@ -45,7 +45,7 @@ static void	render_floor(t_game *game, int x, int wall_stripe_height)
 	}
 }
 
-static void	render_wall(t_game *game, int x, int wall_stripe_height, int real_wall_stripe_height)
+static void	render_wall(t_game *game, int x, double wall_stripe_height, double real_wall_stripe_height)
 {
 	int	c;
 
@@ -56,29 +56,29 @@ static void	render_wall(t_game *game, int x, int wall_stripe_height, int real_wa
 			pixel_put(game->image, x, (game->param->height - 1) / 2
 			- wall_stripe_height / 2 + c, get_texture_pixel_north(game->texture,
 			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ (double)real_wall_stripe_height));
+			/ real_wall_stripe_height));
 		if (game->texture->orientation == 'S')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
 			- wall_stripe_height / 2 + c, get_texture_pixel_south(game->texture,
 			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ (double)real_wall_stripe_height));
+			/ real_wall_stripe_height));
 		if (game->texture->orientation == 'E')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
 			- wall_stripe_height / 2 + c, get_texture_pixel_east(game->texture,
 			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ (double)real_wall_stripe_height));
+			/ real_wall_stripe_height));
 		if (game->texture->orientation == 'W')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
 			- wall_stripe_height / 2 + c, get_texture_pixel_west(game->texture,
 			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ (double)real_wall_stripe_height));
+			/ real_wall_stripe_height));
 		c++;
 	}
 }
 
 void		render(t_game *game, double distance, int x)
 {
-	int		wall_stripe_height;
+	double	wall_stripe_height;
 	double	real_wall_stripe_height;
 	double	projection_plane_distance;
 
