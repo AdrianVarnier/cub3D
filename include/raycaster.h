@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 15:32:41 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/11 19:00:37 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/16 20:39:38 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include "struct.h"
+# include "stdlib.h"
 
 # define FOV 60
 # define TILE_SIZE 64

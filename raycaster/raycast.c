@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 13:43:58 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/16 20:30:48 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,16 @@ void			raycast(t_game *game)
 	int		x;
 	double	angle;
 	double	distance;
-	double	ray_number;
+	int		ray_number;
 	double	projection_plane_distance;
 
 	x = 0;
 	projection_plane_distance = game->param->width / 2
 	/ tan(degree_to_radian(FOV) / 2);
 	ray_number = game->param->width;
+	if (!(game->wall_distance = (double *)malloc(sizeof(double) * (ray_number + 1))))
+		game->wall_distance = NULL;
+	game->wall_distance[ray_number] = -1;
 	while (x < ray_number)
 	{
 		angle = normalized_angle(game->player->rotation_angle
@@ -91,6 +94,7 @@ void			raycast(t_game *game)
 		game->param, game->player, game->texture, angle),
 		check_vertical_intersection1(game->param, game->player,
 		game->texture, angle), angle, game->player);
+		game->wall_distance[x] = distance;
 		game->texture->orientation = get_orientation(
 		check_horizontal_intersection2(game->param, game->player,
 		game->texture, angle), check_vertical_intersection2(game->param,
