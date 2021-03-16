@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 23:55:05 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 01:04:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/16 16:56:44 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	check_one_map(t_param *param)
 	{
 		if (check_space(param->map[i]) == 1 &&
 		check_space(param->map[i + 1]) == 0)
-			free_param_error("More than one map", param);
+			free_param_error("More than one map\n", param);
 		i++;
 	}
 }
@@ -44,7 +44,7 @@ static void	check_map_space1(char **map, t_param *param)
 				|| (map[i][j + 1] != '1' && map[i][j + 1] != ' ')
 				|| (map[i - 1][j] != '1' && map[i - 1][j] != ' ')
 				|| (map[i + 1][j] != '1' && map[i + 1][j] != ' '))
-					free_param_error("Map is open", param);
+					free_param_error("Map is open\n", param);
 			}
 			j++;
 		}
@@ -70,7 +70,7 @@ static void	check_map_space2(char **map, t_param *param)
 				|| (map[i + 1][j - 1] != '1' && map[i + 1][j - 1] != ' ')
 				|| (map[i - 1][j + 1] != '1' && map[i - 1][j + 1] != ' ')
 				|| (map[i + 1][j + 1] != '1' && map[i + 1][j + 1] != ' '))
-					free_param_error("Map is open", param);
+					free_param_error("Map is open\n", param);
 			}
 			j++;
 		}
@@ -94,17 +94,14 @@ static void	check_one_player(char **map, t_param *param)
 		{
 			if (map[i][j] == 'N' || map[i][j] == 'S'
 			|| map[i][j] == 'W' || map[i][j] == 'E')
-			{
-				if (k == 1)
-					free_param_error("Too much player", param);
-				else
-					k = 1;
-			}
+				k++;
 			j++;
 		}
 		j = 0;
 		i++;
 	}
+	if (k != 1)
+		free_param_error("Wrong number player\n", param);
 }
 
 void		check_map(t_param *param)

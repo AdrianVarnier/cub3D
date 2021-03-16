@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/11 18:22:09 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/16 17:04:04 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int argc, char **argv)
 	init_texture(game);
 	game->mlx->window = mlx_new_window(game->mlx->mlx,
 	game->param->width, game->param->height, "cub3d");
-	mlx_hook(game->mlx->window, 2, 1L << 0, press_input, game);
-	mlx_hook(game->mlx->window, 3, 1L << 1, released_input, game->player);
+	mlx_hook(game->mlx->window, 2,  1L << 0, press_input, game);
+	mlx_hook(game->mlx->window, 3,  1L << 1, released_input, game->player);
 	mlx_loop_hook(game->mlx->mlx, image_loop, game);
 	mlx_loop(game->mlx->mlx);
 }
