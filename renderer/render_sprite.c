@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 14:51:04 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/17 01:48:10 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:20:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	render_sprite(t_game *game)
 		angle = fabs(angle);
 		if (angle < degree_to_radian(FOV / 2) + 0.5)
 		{
-			double dx = game->sprite->x[i] - game->player->x;
-			double dy = game->sprite->y[i] - game->player->y;
-			double distance = sqrt(dx * dx + dy * dy);
+			double dx = game->player->x - game->sprite->x[i];
+			double dy = game->player->y - game->sprite->y[i];
+			double distance = sqrt(dx * dx + dy * dy) * cos(angle);
 			angle = atan2(dy, dx) + game->player->rotation_angle;
 			double width = TILE_SIZE / distance * dist_to_projection_plane;
 			double real_width = width;
