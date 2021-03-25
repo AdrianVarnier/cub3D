@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/16 17:04:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:47:15 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 {
 	t_game	*game;
 
-	if (argc != 2)
+	if (argc < 2 && argc > 3)
 	{
 		perror("Wrong argument number");
 		exit(0);

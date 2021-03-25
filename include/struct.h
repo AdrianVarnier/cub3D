@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/16 20:19:59 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/25 20:24:15 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ typedef struct	s_sprite
 {
 	double	*x;
 	double	*y;
+	double	angle;
+	double	distance;
+	double	offset;
+	int		top;
+	int		left;
 }				t_sprite;
 
 typedef struct	s_game	

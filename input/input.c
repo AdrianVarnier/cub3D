@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:15:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 23:20:52 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:01:10 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ static void	move_up_down_turn(t_game *game)
 	new_positiony = game->player->y
 	- sin(game->player->rotation_angle) * move_step;
 	if (game->param->map[(int)(new_positiony / TILE_SIZE)]
-	[(int)(new_positionx / TILE_SIZE)] != '1')
+	[(int)(new_positionx / TILE_SIZE)] != '1' &&
+	game->param->map[(int)(new_positiony / TILE_SIZE)]
+	[(int)(new_positionx / TILE_SIZE)] != '2')
 	{
 		game->player->x = new_positionx;
 		game->player->y = new_positiony;
