@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 00:36:10 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 00:41:30 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/26 18:19:49 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ray_up(double angle)
 }
 
 double		check_vertical_intersection2(t_param *param, t_player *player,
-			t_texture *texture, double angle)
+			double angle)
 {
 	double	wallx;
 	double	wally;

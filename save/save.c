@@ -6,17 +6,13 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 23:44:09 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/26 01:04:19 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:46:19 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "struct.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "save.h"
 
-void	bmp_header(t_game *game, int fd)
+static void	bmp_header(t_game *game, int fd)
 {
 	int	tmp;
 
@@ -44,7 +40,7 @@ void	bmp_header(t_game *game, int fd)
 	write(fd, &tmp, 4);
 }
 
-void	save(t_game *game)
+void		save(t_game *game)
 {
 	int	fd;
 	int	x;

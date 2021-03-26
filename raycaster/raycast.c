@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/17 18:15:45 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/26 21:43:10 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static char		get_orientation(double d1, double d2,
 	if (fabs(d1 - d2) < pow(10, -6))
 	{
 		return (get_orientation(check_horizontal_intersection2(game->param,
-		game->player, game->texture, angle + M_PI / 2 / game->param->width),
+		game->player,  angle + M_PI / 2 / game->param->width),
 		check_vertical_intersection2(game->param, game->player,
-		game->texture, angle + M_PI / 2 / game->param->width),
+		angle + M_PI / 2 / game->param->width),
 		angle + M_PI / 2 / game->param->width, game));
 	}
 	if (d1 > d2)
@@ -97,8 +97,8 @@ void			raycast(t_game *game)
 		game->wall_distance[x] = distance;
 		game->texture->orientation = get_orientation(
 		check_horizontal_intersection2(game->param, game->player,
-		game->texture, angle), check_vertical_intersection2(game->param,
-		game->player, game->texture, angle), angle, game);
+		angle), check_vertical_intersection2(game->param,
+		game->player, angle), angle, game);
 		render(game, distance, x);
 		x++;
 	}

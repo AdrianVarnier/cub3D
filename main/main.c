@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/26 01:31:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/03/26 21:43:50 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,22 @@
 #include "init.h"
 #include "mlx.h"
 #include "input.h"
+#include "save.h"
+#include "free.h"
 
-void	save(t_game *game);
+static int	ft_strncmp(const char *s1, const char *s2, size_t len)
+{
+	size_t i;
 
-int	image_loop(t_game *game)
+	i = 0;
+	if (!len)
+		return (0);
+	while (s1[i] == s2[i] && s1[i] && s2[i] && i < len - 1)
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+static int	image_loop(t_game *game)
 {
 	game->image->image = mlx_new_image(game->mlx->mlx,
 	game->param->width, game->param->height);
@@ -27,19 +39,43 @@ int	image_loop(t_game *game)
 	&game->image->bpp, &game->image->ls, &game->image->endian);
 	raycast(game);
 	render_sprite(game);
+	free(game->wall_distance);
 	mlx_put_image_to_window(game->mlx->mlx,
 	game->mlx->window, game->image->image, 0, 0);
 	mlx_destroy_image(game->mlx->mlx, game->image->image);
 	return (0);
 }
 
-int	main(int argc, char **argv)
+static void	save_exit(t_game *game, char *argv)
+{
+	init_game(&game);
+	parse(argv, game->param);
+	init_player(game->param, game->player);
+	init_sprite(game->sprite, game->param);
+	game->mlx->mlx = mlx_init();
+	init_texture(game);
+	game->image->image = mlx_new_image(game->mlx->mlx,
+	game->param->width, game->param->height);
+	game->image->data = mlx_get_data_addr(game->image->image,
+	&game->image->bpp, &game->image->ls, &game->image->endian);
+	raycast(game);
+	render_sprite(game);
+	free(game->wall_distance);
+	save(game);
+	mlx_destroy_image(game->mlx->mlx, game->image->image);
+	free_save(game);
+}
+
+int			main(int argc, char **argv)
 {
 	t_game	*game;
 
+	game = NULL;
+	if (argc == 3 && ft_strncmp(argv[2], "--save", 6) == 0)
+		save_exit(game, argv[1]);
 	if (argc != 2)
 	{
-		perror("Wrong argument number");
+		perror("Wrong argument");
 		exit(0);
 	}
 	init_game(&game);
