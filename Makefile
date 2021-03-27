@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/03/27 01:04:45 by avarnier         ###   ########.fr        #
+#    Updated: 2021/03/27 17:33:50 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRC = 	free/free_error.c \
 		free/free_exit.c \
 		free/free_map_line.c \
 		free/free_param_error.c \
+		free/free_save.c \
+		free/free_cross_exit.c \
 		init/init_game.c \
 		init/init_param.c \
 		init/init_player.c \
@@ -51,7 +53,6 @@ SRC = 	free/free_error.c \
 		renderer/render_sprite_utils.c \
 		renderer/render_texture.c \
 		saver/save.c \
-		saver/free_save.c \
 		utils/ft_atoi.c \
 		utils/ft_atoi_base.c \
 		utils/ft_bzero.c \
