@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/03/27 17:33:50 by avarnier         ###   ########.fr        #
+#    Updated: 2021/04/12 18:37:24 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,57 +16,57 @@ CC = clang
 FLAGS = -Wall -Wextra -Werror
 LIBS = -lmlx -lXext -lX11 -lm
 
-INC = include
+INC = sources/include
 MLX = minilibx-linux
 
-SRC = 	free/free_error.c \
-		free/free_exit.c \
-		free/free_map_line.c \
-		free/free_param_error.c \
-		free/free_save.c \
-		free/free_cross_exit.c \
-		init/init_game.c \
-		init/init_param.c \
-		init/init_player.c \
-		init/init_sprite.c \
-		init/init_texture.c \
-		input/input.c \
-		main/main.ci \
-		parser/check_error.c \
-		parser/check_map.c \
-		parser/check_param1.c \
-		parser/check_param2.c \
-		parser/check_utils1.c \
-		parser/check_utils2.c \
-		parser/get_map.c \
-		parser/get_param1.c \
-		parser/get_param2.c \
-		parser/get_utils.c \
-		parser/parse.c \
-		raycaster/check_horizontal_intersection1.c \
-		raycaster/check_horizontal_intersection2.c \
-		raycaster/check_vertical_intersection1.c \
-		raycaster/check_vertical_intersection2.c \
-		raycaster/raycast.c \
-		renderer/render.c \
-		renderer/render_sprite.c \
-		renderer/render_sprite_utils.c \
-		renderer/render_texture.c \
-		saver/save.c \
-		utils/ft_atoi.c \
-		utils/ft_atoi_base.c \
-		utils/ft_bzero.c \
-		utils/ft_isdigit.c \
-		utils/ft_itoa_base.c \
-		utils/ft_memcpy.c \
-		utils/ft_memmove.c \
-		utils/ft_memset.c \
-		utils/ft_strchr.c \
-		utils/ft_strdup.c \
-		utils/ft_strlcat.c \
-		utils/ft_strlcpy.c \
-		utils/ft_strlen.c \
-		utils/get_next_line.c \
+SRC = 	sources/free/free_error.c \
+		sources/free/free_exit.c \
+		sources/free/free_map_line.c \
+		sources/free/free_param_error.c \
+		sources/free/free_save.c \
+		sources/free/free_cross_exit.c \
+		sources/init/init_game.c \
+		sources/init/init_param.c \
+		sources/init/init_player.c \
+		sources/init/init_sprite.c \
+		sources/init/init_texture.c \
+		sources/input/input.c \
+		sources/main/main.ci \
+		sources/parser/check_error.c \
+		sources/parser/check_map.c \
+		sources/parser/check_param1.c \
+		sources/parser/check_param2.c \
+		sources/parser/check_utils1.c \
+		sources/parser/check_utils2.c \
+		sources/parser/get_map.c \
+		sources/parser/get_param1.c \
+		sources/parser/get_param2.c \
+		sources/parser/get_utils.c \
+		sources/parser/parse.c \
+		sources/raycaster/check_horizontal_intersection1.c \
+		sources/raycaster/check_horizontal_intersection2.c \
+		sources/raycaster/check_vertical_intersection1.c \
+		sources/raycaster/check_vertical_intersection2.c \
+		sources/raycaster/raycast.c \
+		sources/renderer/render.c \
+		sources/renderer/render_sprite.c \
+		sources/renderer/render_sprite_utils.c \
+		sources/renderer/render_texture.c \
+		sources/saver/save.c \
+		sources/utils/ft_atoi.c \
+		sources/utils/ft_atoi_base.c \
+		sources/utils/ft_bzero.c \
+		sources/utils/ft_isdigit.c \
+		sources/utils/ft_itoa_base.c \
+		sources/utils/ft_memcpy.c \
+		sources/utils/ft_memmove.c \
+		sources/utils/ft_memset.c \
+		sources/utils/ft_strchr.c \
+		sources/utils/ft_strdup.c \
+		sources/utils/ft_strlcat.c \
+		sources/utils/ft_strlcpy.c \
+		sources/utils/ft_strlen.c \
+		sources/utils/get_next_line.c \
 
 OBJ = $(addsuffix .o, $(basename $(SRC)))
 
