@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/25 20:24:15 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:29:24 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct	s_sprite
 	int		left;
 }				t_sprite;
 
-typedef struct	s_game	
+typedef struct	s_game
 {
 	double				*wall_distance;
 	struct s_param		*param;

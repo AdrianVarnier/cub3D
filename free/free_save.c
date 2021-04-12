@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 16:47:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/26 21:41:45 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:26:47 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ static void	free_save1(t_game *game)
 	free(game->mlx);
 	free(game);
 	exit(0);
-
 }
 
-void	free_save(t_game *game)
+void		free_save(t_game *game)
 {
 	int i;
 

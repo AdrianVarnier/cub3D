@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/27 17:29:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:36:02 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int			main(int argc, char **argv)
 	game->mlx->window = mlx_new_window(game->mlx->mlx,
 	game->param->width, game->param->height, "cub3d");
 	image_loop(game);
-	mlx_hook(game->mlx->window, 2,  1L << 0, press_input, game);
-	mlx_hook(game->mlx->window, 3,  1L << 1, released_input, game->player);
+	mlx_hook(game->mlx->window, 2, 1L << 0, press_input, game);
+	mlx_hook(game->mlx->window, 3, 1L << 1, released_input, game->player);
 	mlx_hook(game->mlx->window, 33, 1L << 17, free_cross_exit, game);
 	mlx_loop_hook(game->mlx->mlx, image_loop, game);
 	mlx_loop(game->mlx->mlx);

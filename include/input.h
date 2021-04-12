@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:27:35 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/09 23:19:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:27:46 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 # include "struct.h"
 # include "math.h"
-
-/*# define UP 13
-# define DOWN 1
-# define LEFT 0
-# define RIGHT 2
-# define TURN_LEFT 124
-# define TURN_RIGHT 123
-# define ESCAPE 53*/
 
 # define UP 122
 # define DOWN 115

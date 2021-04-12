@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 14:20:29 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/17 00:07:35 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/12 17:35:13 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	get_sprite_position(t_sprite *sprite, t_param *param)
 void		init_sprite(t_sprite *sprite, t_param *param)
 {
 	int	sprite_number;
-	
+
 	sprite_number = get_sprite_number(param);
 	if (!(sprite->x = (double *)malloc(sizeof(double) * (sprite_number + 1))))
 		sprite->x = NULL;
