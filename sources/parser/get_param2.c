@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:10:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 14:51:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:58:03 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	get_param(char *s, t_param *param)
 		get_ceil(s, param);
 }
 
-void		get_all_param(int fd, char *s, t_param *param)
+void		get_all_param(int fd, char *s, t_game *game)
 {
 	int	c;
 
@@ -87,10 +87,10 @@ void		get_all_param(int fd, char *s, t_param *param)
 		get_next_line(fd, &s);
 		if (check_space(s) == 0)
 		{
-			get_param(s, param);
+			get_param(s, game->param);
 			c++;
 		}
 		free(s);
 	}
-	get_map(fd, s, param);
+	get_map(fd, s, game);
 }

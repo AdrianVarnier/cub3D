@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:20:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/01 02:23:21 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:58:44 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ void	check_type(char *s, t_param *param);
 void	check_pathname(char *s);
 void	check_map_char(char *s, t_param *param);
 void	check_error(int fd, char *s, t_param *param);
-void	get_map(int fd, char *s, t_param *param);
+void	get_map(int fd, char *s, t_game *game);
 void	get_north(char *s, t_param *param);
 void	get_south(char *s, t_param *param);
 void	get_west(char *s, t_param *param);
 void	get_east(char *s, t_param *param);
 void	get_sprite(char *s, t_param *param);
-void	get_all_param(int fd, char *s, t_param *param);
+void	get_all_param(int fd, char *s, t_game *game);
 char	*ft_strjoin_free(char *s1, char *s2);
 int		get_color(char *s);
 int		get_int(char *s);
 int		pass_int(char *s);
 char	*get_path(char *s);
-void	check_map(t_param *param);
-void	parse(char *pathname, t_param *param);
+void	check_map(t_game *game);
+void	parse(char *pathname, t_game *game);
 
 #endif

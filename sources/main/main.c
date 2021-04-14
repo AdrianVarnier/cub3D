@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 17:36:02 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:04:57 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	image_loop(t_game *game)
 static void	save_exit(t_game *game, char *argv)
 {
 	init_game(&game);
-	parse(argv, game->param);
+	parse(argv, game);
 	init_player(game->param, game->player);
 	init_sprite(game->sprite, game->param);
 	game->mlx->mlx = mlx_init();
@@ -79,7 +79,7 @@ int			main(int argc, char **argv)
 		exit(0);
 	}
 	init_game(&game);
-	parse(argv[1], game->param);
+	parse(argv[1], game);
 	init_player(game->param, game->player);
 	init_sprite(game->sprite, game->param);
 	game->mlx->mlx = mlx_init();

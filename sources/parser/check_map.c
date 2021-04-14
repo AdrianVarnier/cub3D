@@ -6,28 +6,28 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 23:55:05 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/16 16:56:44 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:10:04 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
 #include "parser.h"
 
-static void	check_one_map(t_param *param)
+static void	check_one_map(t_game *game)
 {
 	int	i;
 
 	i = 2;
-	while (i < param->map_height + 1)
+	while (i < game->param->map_height + 1)
 	{
-		if (check_space(param->map[i]) == 1 &&
-		check_space(param->map[i + 1]) == 0)
-			free_param_error("More than one map\n", param);
+		if (check_space(game->param->map[i]) == 1 &&
+		check_space(game->param->map[i + 1]) == 0)
+			free_param_error("More than one map\n", game);
 		i++;
 	}
 }
 
-static void	check_map_space1(char **map, t_param *param)
+static void	check_map_space1(char **map, t_game *game)
 {
 	int	i;
 	int	j;
@@ -44,7 +44,7 @@ static void	check_map_space1(char **map, t_param *param)
 				|| (map[i][j + 1] != '1' && map[i][j + 1] != ' ')
 				|| (map[i - 1][j] != '1' && map[i - 1][j] != ' ')
 				|| (map[i + 1][j] != '1' && map[i + 1][j] != ' '))
-					free_param_error("Map is open\n", param);
+					free_param_error("Map is open\n", game);
 			}
 			j++;
 		}
@@ -53,7 +53,7 @@ static void	check_map_space1(char **map, t_param *param)
 	}
 }
 
-static void	check_map_space2(char **map, t_param *param)
+static void	check_map_space2(char **map, t_game *game)
 {
 	int	i;
 	int	j;
@@ -70,7 +70,7 @@ static void	check_map_space2(char **map, t_param *param)
 				|| (map[i + 1][j - 1] != '1' && map[i + 1][j - 1] != ' ')
 				|| (map[i - 1][j + 1] != '1' && map[i - 1][j + 1] != ' ')
 				|| (map[i + 1][j + 1] != '1' && map[i + 1][j + 1] != ' '))
-					free_param_error("Map is open\n", param);
+					free_param_error("Map is open\n", game);
 			}
 			j++;
 		}
@@ -79,7 +79,7 @@ static void	check_map_space2(char **map, t_param *param)
 	}
 }
 
-static void	check_one_player(char **map, t_param *param)
+static void	check_one_player(char **map, t_game *game)
 {
 	int	i;
 	int	j;
@@ -101,13 +101,13 @@ static void	check_one_player(char **map, t_param *param)
 		i++;
 	}
 	if (k != 1)
-		free_param_error("Wrong number player\n", param);
+		free_param_error("Wrong number player\n", game);
 }
 
-void		check_map(t_param *param)
+void		check_map(t_game *game)
 {
-	check_one_map(param);
-	check_map_space1(param->map, param);
-	check_map_space2(param->map, param);
-	check_one_player(param->map, param);
+	check_one_map(game);
+	check_map_space1(game->param->map, game);
+	check_map_space2(game->param->map, game);
+	check_one_player(game->param->map, game);
 }

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 21:08:43 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:43:17 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:56:04 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 #include "free.h"
 #include "utils.h"
 
-static char	*get_map_line(char *s, t_param *param)
+static char	*get_map_line(char *s, t_game *game, int c)
 {
 	int		i;
 	int		j;
 	int		l;
 	char	*cpy;
 
-	l = param->width;
+	l = game->param->width;
 	if (!(cpy = (char *)malloc(sizeof(char) * (l + 1 + 4))))
-		return (NULL);
+		free_map_line(s, c, game);
 	i = 2;
 	j = 0;
 	cpy[0] = ' ';
@@ -43,7 +43,7 @@ static char	*get_map_line(char *s, t_param *param)
 	return (cpy);
 }
 
-void		get_map(int fd, char *s, t_param *param)
+void		get_map(int fd, char *s, t_game *game)
 {
 	int	ret;
 	int	i;
@@ -57,15 +57,14 @@ void		get_map(int fd, char *s, t_param *param)
 	}
 	while (ret > 0)
 	{
-		if (!(param->map[i] = get_map_line(s, param)))
-			free_map_line(s, i, param);
+		game->param->map[i] = get_map_line(s, game, i);
 		i++;
 		free(s);
 		ret = get_next_line(fd, &s);
 	}
 	free(s);
-	param->map[i] = get_map_line("", param);
-	param->map[i + 1] = get_map_line("", param);
-	param->map[0] = get_map_line("", param);
-	param->map[1] = get_map_line("", param);
+	game->param->map[i] = get_map_line("", game, i);
+	game->param->map[i + 1] = get_map_line("", game, i);
+	game->param->map[0] = get_map_line("", game, i);
+	game->param->map[1] = get_map_line("", game, i);
 }
