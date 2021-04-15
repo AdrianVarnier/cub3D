@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:56:48 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/15 17:35:40 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/15 17:41:25 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ static void	print_wall_square(int i, int j, t_game *game)
 	int	x;
 	int	y;
 
-	i = i * game->param->height / game->param->map_height / 10;
+	i = i * game->param->width / game->param->map_width / 10;
 	j = j * game->param->width / game->param->map_width / 10;
 	x = j;
 	y = i;
-	while (y < i + game->param->height / game->param->map_height / 10)
+	while (y < i + game->param->width / game->param->map_width / 10)
 	{
 		while (x < j + game->param->width / game->param->map_width / 10)
 		{
@@ -46,11 +46,11 @@ static void	print_sprite_square(int i, int j, t_game *game)
 	int	x;
 	int	y;
 
-	i = i * game->param->height / game->param->map_height / 10;
+	i = i * game->param->width / game->param->map_width / 10;
 	j = j * game->param->width / game->param->map_width / 10;
 	x = j;
 	y = i;
-	while (y < i + game->param->height / game->param->map_height / 10)
+	while (y < i + game->param->width / game->param->map_width / 10)
 	{
 		while (x < j + game->param->width / game->param->map_width / 10)
 		{
@@ -62,7 +62,7 @@ static void	print_sprite_square(int i, int j, t_game *game)
 	}
 	pixel_put(game->image, j + game->param->width
 	/ game->param->map_width / 2 / 10,
-	i + game->param->height / game->param->map_height / 2 / 10, 0xFFFFFF);
+	i + game->param->width / game->param->map_width / 2 / 10, 0xFFFFFF);
 }
 
 static void	print_empty_square(int i, int j, t_game *game)
@@ -70,11 +70,11 @@ static void	print_empty_square(int i, int j, t_game *game)
 	int	x;
 	int	y;
 
-	i = i * game->param->height / game->param->map_height / 10;
+	i = i * game->param->width / game->param->map_width / 10;
 	j = j * game->param->width / game->param->map_width / 10;
 	x = j;
 	y = i;
-	while (y < i + game->param->height / game->param->map_height / 10)
+	while (y < i + game->param->width / game->param->map_width / 10)
 	{
 		while (x < j + game->param->width / game->param->map_width / 10)
 		{
