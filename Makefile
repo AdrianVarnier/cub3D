@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/04/12 18:37:24 by avarnier         ###   ########.fr        #
+#    Updated: 2021/04/15 16:54:29 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ FLAGS = -Wall -Wextra -Werror
 LIBS = -lmlx -lXext -lX11 -lm
 
 INC = sources/include
+INC_BONUS = bonus/include
 MLX = minilibx-linux
 
 SRC = 	sources/free/free_error.c \
@@ -31,7 +32,7 @@ SRC = 	sources/free/free_error.c \
 		sources/init/init_sprite.c \
 		sources/init/init_texture.c \
 		sources/input/input.c \
-		sources/main/main.ci \
+		sources/main/main.c \
 		sources/parser/check_error.c \
 		sources/parser/check_map.c \
 		sources/parser/check_param1.c \
@@ -70,19 +71,75 @@ SRC = 	sources/free/free_error.c \
 
 OBJ = $(addsuffix .o, $(basename $(SRC)))
 
+SRC_BONUS = 	sources/free/free_error.c \
+				sources/free/free_exit.c \
+				sources/free/free_map_line.c \
+				sources/free/free_param_error.c \
+				sources/free/free_save.c \
+				sources/free/free_cross_exit.c \
+				sources/init/init_game.c \
+				sources/init/init_param.c \
+				sources/init/init_player.c \
+				sources/init/init_sprite.c \
+				sources/init/init_texture.c \
+				sources/input/input.c \
+				sources/parser/check_error.c \
+				sources/parser/check_map.c \
+				sources/parser/check_param1.c \
+				sources/parser/check_param2.c \
+				sources/parser/check_utils1.c \
+				sources/parser/check_utils2.c \
+				sources/parser/get_map.c \
+				sources/parser/get_param1.c \
+				sources/parser/get_param2.c \
+				sources/parser/get_utils.c \
+				sources/parser/parse.c \
+				sources/raycaster/check_horizontal_intersection1.c \
+				sources/raycaster/check_horizontal_intersection2.c \
+				sources/raycaster/check_vertical_intersection1.c \
+				sources/raycaster/check_vertical_intersection2.c \
+				sources/raycaster/raycast.c \
+				sources/renderer/render.c \
+				sources/renderer/render_sprite.c \
+				sources/renderer/render_sprite_utils.c \
+				sources/renderer/render_texture.c \
+				sources/saver/save.c \
+				sources/utils/ft_atoi.c \
+				sources/utils/ft_atoi_base.c \
+				sources/utils/ft_bzero.c \
+				sources/utils/ft_isdigit.c \
+				sources/utils/ft_itoa_base.c \
+				sources/utils/ft_memcpy.c \
+				sources/utils/ft_memmove.c \
+				sources/utils/ft_memset.c \
+				sources/utils/ft_strchr.c \
+				sources/utils/ft_strdup.c \
+				sources/utils/ft_strlcat.c \
+				sources/utils/ft_strlcpy.c \
+				sources/utils/ft_strlen.c \
+				sources/utils/get_next_line.c \
+				bonus/main/main_bonus.c \
+				bonus/minimap/render_minimap_bonus.c \
+
+OBJ_BONUS = $(addsuffix .o, $(basename $(SRC_BONUS)))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) -L $(MLX) $(LIBS)
 
+bonus: $(OBJ_BONUS)
+	$(CC) $(FLAGS) -o $(NAME)_bonus $(OBJ_BONUS) -L $(MLX) $(LIBS)
+
 %.o: %.c
-	$(CC) -c -o $@ $< $(FLAGS) -I $(INC) -I $(MLX)
+	$(CC) -c -o $@ $< $(FLAGS) -I $(INC) -I $(MLX) -I $(INC_BONUS)
 
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(OBJ_BONUS)
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(NAME)_bonus
 
 re: fclean all
