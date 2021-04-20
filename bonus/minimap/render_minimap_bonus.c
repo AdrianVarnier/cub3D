@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:56:48 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/15 17:41:25 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/20 18:26:27 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,5 @@ void		render_minimap(t_game *game)
 		j = 0;
 		i++;
 	}
+	render_player(game);
 }

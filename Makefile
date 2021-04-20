@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/04/15 16:54:29 by avarnier         ###   ########.fr        #
+#    Updated: 2021/04/20 18:27:22 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,6 +120,7 @@ SRC_BONUS = 	sources/free/free_error.c \
 				sources/utils/get_next_line.c \
 				bonus/main/main_bonus.c \
 				bonus/minimap/render_minimap_bonus.c \
+				bonus/minimap/render_player_bonus.c \
 
 OBJ_BONUS = $(addsuffix .o, $(basename $(SRC_BONUS)))
 
