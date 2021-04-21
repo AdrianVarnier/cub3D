@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_player_bonus.c                              :+:      :+:    :+:   */
+/*   render_lifebar_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/20 18:19:28 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/21 19:48:49 by avarnier         ###   ########.fr       */
+/*   Created: 2021/04/21 19:26:59 by avarnier          #+#    #+#             */
+/*   Updated: 2021/04/21 19:48:02 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minimap_bonus.h"
+#include "lifebar_bonus.h"
 
 static void	pixel_put(t_image *image, int x, int y, int color)
 {
@@ -20,10 +20,21 @@ static void	pixel_put(t_image *image, int x, int y, int color)
 	*(int *)dst = color;
 }
 
-void		render_player(t_game *game)
+void		render_lifebar(t_game *game)
 {
-	pixel_put(game->image,
-	game->player->x / 64 * game->param->width / game->param->map_width / 10,
-	game->player->y / 64 * game->param->width / game->param->map_width / 10,
-	0xFF0000);
+	int	x;
+	int	y;
+
+	x = game->param->width / 10;
+	y = game->param->height / 10 * 9;
+	while (y < game->param->height / 10 * 9.5)
+	{
+		while (x < game->param->width / 10 * 9)
+		{
+			pixel_put(game->image, x, y, 0xFF0000);
+			x++;
+		}
+		x = game->param->width / 10;
+		y++;
+	}
 }

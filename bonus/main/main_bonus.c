@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:48:48 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/15 15:56:21 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/21 19:37:58 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "save.h"
 #include "free.h"
 #include "minimap_bonus.h"
+#include "lifebar_bonus.h"
 
 static int	ft_strncmp(const char *s1, const char *s2, size_t len)
 {
@@ -41,6 +42,7 @@ static int	image_loop(t_game *game)
 	raycast(game);
 	render_sprite(game);
 	render_minimap(game);
+	render_lifebar(game);
 	free(game->wall_distance);
 	mlx_put_image_to_window(game->mlx->mlx,
 	game->mlx->window, game->image->image, 0, 0);
@@ -63,6 +65,7 @@ static void	save_exit(t_game *game, char *argv)
 	raycast(game);
 	render_sprite(game);
 	render_minimap(game);
+	render_lifebar(game);
 	free(game->wall_distance);
 	save(game);
 	mlx_destroy_image(game->mlx->mlx, game->image->image);

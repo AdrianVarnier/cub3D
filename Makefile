@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/04/20 18:27:22 by avarnier         ###   ########.fr        #
+#    Updated: 2021/04/21 19:54:18 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,6 @@ SRC_BONUS = 	sources/free/free_error.c \
 				sources/init/init_player.c \
 				sources/init/init_sprite.c \
 				sources/init/init_texture.c \
-				sources/input/input.c \
 				sources/parser/check_error.c \
 				sources/parser/check_map.c \
 				sources/parser/check_param1.c \
@@ -121,6 +120,8 @@ SRC_BONUS = 	sources/free/free_error.c \
 				bonus/main/main_bonus.c \
 				bonus/minimap/render_minimap_bonus.c \
 				bonus/minimap/render_player_bonus.c \
+				bonus/lifebar/render_lifebar_bonus.c \
+				bonus/input/input_bonus.c \
 
 OBJ_BONUS = $(addsuffix .o, $(basename $(SRC_BONUS)))
 
