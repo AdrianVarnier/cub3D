@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:04:57 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/30 12:45:18 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,27 @@
 #include "save.h"
 #include "free.h"
 
-static int	ft_strncmp(const char *s1, const char *s2, size_t len)
+static int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
+	int		i;
 
 	i = 0;
-	if (!len)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < len - 1)
+	while ((unsigned char)s1[i] == (unsigned char)s2[i]
+	&& s1[i] != '\0' && s2[i] != '\0')
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+static void	check_window(t_param *param, t_game *game)
+{
+	int	x;
+	int	y;
+
+	mlx_get_screen_size(game->mlx->mlx, &x, &y);
+	if (param->width > x)
+		param->width = x;
+	if (param->height > y)
+		param->height = y;
 }
 
 static int	image_loop(t_game *game)
@@ -54,6 +65,7 @@ static void	save_exit(t_game *game, char *argv)
 	init_sprite(game->sprite, game->param);
 	game->mlx->mlx = mlx_init();
 	init_texture(game);
+	check_window(game->param, game);
 	game->image->image = mlx_new_image(game->mlx->mlx,
 	game->param->width, game->param->height);
 	game->image->data = mlx_get_data_addr(game->image->image,
@@ -71,7 +83,7 @@ int			main(int argc, char **argv)
 	t_game	*game;
 
 	game = NULL;
-	if (argc == 3 && ft_strncmp(argv[2], "--save", 6) == 0)
+	if (argc == 3 && ft_strcmp(argv[2], "--save") == 0)
 		save_exit(game, argv[1]);
 	if (argc != 2)
 	{
@@ -84,6 +96,7 @@ int			main(int argc, char **argv)
 	init_sprite(game->sprite, game->param);
 	game->mlx->mlx = mlx_init();
 	init_texture(game);
+	check_window(game->param, game);
 	game->mlx->window = mlx_new_window(game->mlx->mlx,
 	game->param->width, game->param->height, "cub3d");
 	image_loop(game);

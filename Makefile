@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/04/21 19:54:18 by avarnier         ###   ########.fr        #
+#    Updated: 2021/04/30 12:34:09 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,7 +131,7 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJ) -L $(MLX) $(LIBS)
 
 bonus: $(OBJ_BONUS)
-	$(CC) $(FLAGS) -o $(NAME)_bonus $(OBJ_BONUS) -L $(MLX) $(LIBS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ_BONUS) -L $(MLX) $(LIBS)
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(FLAGS) -I $(INC) -I $(MLX) -I $(INC_BONUS)
@@ -142,6 +142,5 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	rm -rf $(NAME)_bonus
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:10:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:58:03 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/04/30 12:47:39 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ static void	get_resolution(char *s, t_param *param)
 	param->width = get_int(s + i);
 	i = i + pass_int(s + i);
 	param->height = get_int(s + i);
-	if (param->width > 1920)
-		param->width = 1920;
-	if (param->height > 1080)
-		param->width = 1080;
 }
 
 static void	get_floor(char *s, t_param *param)
