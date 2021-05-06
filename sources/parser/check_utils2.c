@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:35:22 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:43:03 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 23:07:55 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	check_pathname(char *s)
 		i++;
 	if (s[i + 1] != 'c' || s[i + 2] != 'u' || s[i + 3] != 'b')
 	{
-		perror("No .cub file\n");
+		ft_putstr_fd("No .cub file\n", 0);
 		exit(0);
 	}
 }

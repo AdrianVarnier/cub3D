@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 22:12:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:59:16 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 23:14:25 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	parse(char *pathname, t_game *game)
 	check_pathname(pathname);
 	if ((fd = open(pathname, O_RDONLY)) == -1)
 	{
-		perror("Cannot open file.cub");
+		ft_putstr_fd("Cannot open file.cub", 0);
 		exit(0);
 	}
 	check_error(fd, s, game->param);

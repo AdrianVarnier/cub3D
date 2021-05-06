@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 15:42:27 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 15:50:56 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:54:41 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	free_texture_exit3(t_game *game)
 	free(game->mlx->mlx);
 	free(game->mlx);
 	free(game);
-	perror("Wrong Path\n");
+	ft_putstr_fd("Wrong Path\n", 0);
 	exit(0);
 }
 

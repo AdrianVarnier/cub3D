@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:38:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 15:51:32 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:55:53 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FREE_H
 
 # include "struct.h"
+# include "utils.h"
 # include <stdlib.h>
 # include <stdio.h>
 

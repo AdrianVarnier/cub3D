@@ -1,4 +1,4 @@
-R 1920 1080
+R 2147483647 2147483647
 
 NO ./textures/Wall1.xpm
 SO ./textures/Wall2.xpm
@@ -6,8 +6,8 @@ WE ./textures/Wall3.xpm
 EA ./textures/Wall4.xpm
 S ./textures/Mr_Game_and_Watch_Hammer.xpm
 
-F 255,255,255
 C 0,0,0
+F 255,255,255
 
 1111111111111111
 1000000000000001

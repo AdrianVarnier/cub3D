@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:26:55 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 23:31:18 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:39:23 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t len);
 char	*ft_strdup(const char *s);
 char	*ft_itoa_base(int n, char *base);
 int		ft_atoi_base(char *s, char *base);
+void	ft_putstr_fd(char *s, int fd);
 
 #endif

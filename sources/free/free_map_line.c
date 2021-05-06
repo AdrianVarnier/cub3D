@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:44:55 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:55:02 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:55:00 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	free_map_line(char *s, int i, t_game *game)
 	free(game->param->map);
 	free(game->param);
 	free(game);
-	perror("map line malloc error");
+	ft_putstr_fd("map line malloc error\n", 0);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 21:08:43 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:56:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 23:42:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*get_map_line(char *s, t_game *game, int c)
 	int		l;
 	char	*cpy;
 
-	l = game->param->width;
+	l = game->param->map_width;
 	if (!(cpy = (char *)malloc(sizeof(char) * (l + 1 + 4))))
 		free_map_line(s, c, game);
 	i = 2;

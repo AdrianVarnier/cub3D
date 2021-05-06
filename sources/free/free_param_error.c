@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:45:38 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 12:56:25 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/06 22:53:32 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	free_param_error(char *s, t_game *game)
 	free(game->param->map);
 	free(game->param);
 	free(game);
-	perror(s);
+	ft_putstr_fd(s, 0);
 	exit(0);
 }

@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_error.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/28 14:43:39 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 22:51:26 by avarnier         ###   ########.fr       */
+/*   Created: 2021/05/06 22:37:03 by avarnier          #+#    #+#             */
+/*   Updated: 2021/05/06 22:38:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "free.h"
+#include "utils.h"
 
-void	free_error(char *s1, char *s2, t_param *param)
+void	ft_putstr_fd(char *s, int fd)
 {
-	free(s2);
-	free(param);
-	ft_putstr_fd(s1, 0);
-	exit(0);
+	if (s != 0)
+		write(fd, s, ft_strlen(s));
 }

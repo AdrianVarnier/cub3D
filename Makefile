@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/05/06 15:53:09 by avarnier         ###   ########.fr        #
+#    Updated: 2021/05/06 22:42:33 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC = 	sources/free/free_error.c \
 		sources/utils/ft_strlcpy.c \
 		sources/utils/ft_strlen.c \
 		sources/utils/get_next_line.c \
+		sources/utils/ft_putstr_fd.c \
 
 OBJ = $(addsuffix .o, $(basename $(SRC)))
 
@@ -119,6 +120,7 @@ SRC_BONUS = 	sources/free/free_error.c \
 				sources/utils/ft_strlcpy.c \
 				sources/utils/ft_strlen.c \
 				sources/utils/get_next_line.c \
+				sources/utils/ft_putstr_fd.c \
 				bonus/main/main_bonus.c \
 				bonus/minimap/render_minimap_bonus.c \
 				bonus/minimap/render_player_bonus.c \
