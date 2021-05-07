@@ -1,4 +1,4 @@
-R 2147483647 2147483647
+R 500 500
 
 NO ./textures/Wall1.xpm
 SO ./textures/Wall2.xpm

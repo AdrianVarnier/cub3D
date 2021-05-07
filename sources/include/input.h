@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 13:27:35 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 17:27:46 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:57:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 # define TURN_RIGHT 65363
 # define ESCAPE 65307
 
-int	press_input(int key, t_game *game);
-int	released_input(int key, t_player *player);
+int		press_input(int key, t_game *game);
+int		released_input(int key, t_player *player);
+void	movement(t_game *game);
 
 #endif

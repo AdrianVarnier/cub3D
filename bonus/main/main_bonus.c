@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/15 15:48:48 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/30 12:46:46 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:45:05 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	check_window(t_param *param, t_game *game)
 		param->width = x;
 	if (param->height > y)
 		param->height = y;
+	mlx_do_key_autorepeatoff(game->mlx->mlx);
 }
 
 static int	image_loop(t_game *game)
@@ -50,6 +51,7 @@ static int	image_loop(t_game *game)
 	game->param->width, game->param->height);
 	game->image->data = mlx_get_data_addr(game->image->image,
 	&game->image->bpp, &game->image->ls, &game->image->endian);
+	movement(game);
 	raycast(game);
 	render_sprite(game);
 	render_minimap(game);
@@ -93,7 +95,7 @@ int			main(int argc, char **argv)
 		save_exit(game, argv[1]);
 	if (argc != 2)
 	{
-		perror("Wrong argument");
+		ft_putstr_fd("Wrong argument", 0);
 		exit(0);
 	}
 	init_game(&game);

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/21 19:49:50 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/21 19:50:57 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:45:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 #include "raycaster.h"
 #include "free.h"
 
-static void	move_up_down_turn(t_game *game)
+static void	move_up_down(t_game *game)
 {
 	double	move_step;
 	double	new_positionx;
 	double	new_positiony;
 
-	game->player->rotation_angle = normalized_angle(game->player->rotation_angle
-	+ game->player->turn_direction * game->player->rotation_speed);
-	move_step = game->player->walk_direction * game->player->move_speed;
+	move_step = game->player->walk_direction1 * game->player->move_speed;
 	new_positionx = game->player->x
 	+ cos(game->player->rotation_angle) * move_step;
 	new_positiony = game->player->y
@@ -43,7 +41,7 @@ static void	move_left_right(t_game *game)
 	double	new_positionx;
 	double	new_positiony;
 
-	move_step = game->player->walk_direction * game->player->move_speed;
+	move_step = game->player->walk_direction2 * game->player->move_speed;
 	new_positionx = game->player->x
 	+ cos(game->player->rotation_angle + M_PI / 2) * move_step;
 	new_positiony = game->player->y
@@ -56,35 +54,43 @@ static void	move_left_right(t_game *game)
 	}
 }
 
+void		movement(t_game *game)
+{
+	game->player->rotation_angle = normalized_angle(game->player->rotation_angle
+	+ game->player->turn_direction * game->player->rotation_speed);
+	move_up_down(game);
+	move_left_right(game);
+}
+
 int			press_input(int key, t_game *game)
 {
 	if (key == ESCAPE)
 		free_exit(game);
-	if (key == UP || key == LEFT)
-		game->player->walk_direction = 1;
-	if (key == DOWN || key == RIGHT)
-		game->player->walk_direction = -1;
+	if (key == UP)
+		game->player->walk_direction1 = 1;
+	if (key == DOWN)
+		game->player->walk_direction1 = -1;
+	if (key == LEFT)
+		game->player->walk_direction2 = 1;
+	if (key == RIGHT)
+		game->player->walk_direction2 = -1;
 	if (key == TURN_LEFT)
 		game->player->turn_direction = 1;
 	if (key == TURN_RIGHT)
 		game->player->turn_direction = -1;
-	if (key == LEFT || key == RIGHT)
-		move_left_right(game);
-	else
-		move_up_down_turn(game);
 	return (0);
 }
 
 int			released_input(int key, t_player *player)
 {
 	if (key == UP)
-		player->walk_direction = 0;
+		player->walk_direction1 = 0;
 	if (key == DOWN)
-		player->walk_direction = 0;
+		player->walk_direction1 = 0;
 	if (key == LEFT)
-		player->walk_direction = 0;
+		player->walk_direction2 = 0;
 	if (key == RIGHT)
-		player->walk_direction = 0;
+		player->walk_direction2 = 0;
 	if (key == TURN_LEFT)
 		player->turn_direction = 0;
 	if (key == TURN_RIGHT)

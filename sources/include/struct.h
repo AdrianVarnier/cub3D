@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 17:29:24 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 15:27:53 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct	s_player
 	double		x;
 	double		y;
 	int			turn_direction;
-	int			walk_direction;
+	int			walk_direction1;
+	int			walk_direction2;
 	double		rotation_angle;
 	double		move_speed;
 	double		rotation_speed;

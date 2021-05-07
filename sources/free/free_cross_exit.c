@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 17:15:25 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 17:26:19 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:12:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	free_cross_exit2(t_game *game)
 
 int			free_cross_exit(t_game *game)
 {
+	mlx_do_key_autorepeaton(game->mlx->mlx);
 	free_cross_exit1(game);
 	free_cross_exit2(game);
 	return (0);

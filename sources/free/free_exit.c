@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 04:01:23 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/26 21:41:37 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/07 16:12:55 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	free_exit2(t_game *game)
 
 void		free_exit(t_game *game)
 {
+	mlx_do_key_autorepeaton(game->mlx->mlx);
 	free_exit1(game);
 	free_exit2(game);
 }
