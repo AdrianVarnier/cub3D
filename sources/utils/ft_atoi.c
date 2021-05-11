@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:44:57 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 02:48:49 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 23:34:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *s)
 {
-	int	i;
-	int	x;
-	int	signe;
+	int				i;
+	unsigned int	x;
+	int				signe;
 
 	i = 0;
 	x = 0;
@@ -34,5 +34,7 @@ int	ft_atoi(const char *s)
 		x = 10 * x + s[i] - '0';
 		i++;
 	}
-	return (x * signe);
+	if (x > 2147483647)
+		x = 2147483647;
+	return ((int)x * signe);
 }
