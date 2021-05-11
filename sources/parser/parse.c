@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 22:12:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 21:43:06 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 22:59:19 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	parse(char *pathname, t_game *game)
 		ft_putstr_fd("Cannot open file.cub", 0);
 		free_game(game);
 	}
-	check_error(fd, s, game->param);
+	check_error(fd, s, game->param, game);
 	close(fd);
 	fd = open(pathname, O_RDONLY);
 	if (!(game->param->map = (char **)malloc(sizeof(char *) *
