@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:33:24 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:42:49 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 21:00:38 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,17 @@ int		check_color(char *s1, char *s2, t_param *param)
 
 	i = 0;
 	c = 3;
-	while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
-		i++;
 	while (c > 0)
 	{
+		while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
+			i++;
 		if (ft_isdigit(s1[i]) == 0)
 			free_error("Missing color\n", s2, param);
 		if (ft_atoi(s1 + i) > 255 || ft_atoi(s1 + i) < 0)
 			free_error("Wrong color\n", s2, param);
 		while (ft_isdigit(s1[i]) > 0)
+			i++;
+		while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
 			i++;
 		if (s1[i] != ',' && c != 1)
 			free_error("Missing color\n", s2, param);
@@ -56,16 +58,13 @@ int		check_color(char *s1, char *s2, t_param *param)
 	return (i);
 }
 
-int		check_path(char *s1, char *s2, t_param *param)
+int		check_path(char *s1)
 {
 	int	i;
 
 	i = 0;
 	while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
 		i++;
-	if (s1[i] != '.' || s1[i + 1] != '/' || s1[i + 2] == ' '
-	|| (s1[i + 2] >= 9 && s1[i + 2] <= 13))
-		free_error("Missing path\n", s2, param);
 	while (s1[i] != ' ' && (!(s1[i] >= 9 && s1[i] <= 13)) && s1[i] != '\0')
 		i++;
 	return (i);

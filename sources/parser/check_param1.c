@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:05:01 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:42:20 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:49:00 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_north(char *s, t_param *param)
 	while (s[i] != 'O')
 		i++;
 	i++;
-	i = i + check_path(s + i, s, param);
+	i = i + check_path(s + i);
 	check_end(s + i, s, param);
 	param->north_presence = 1;
 }
@@ -38,7 +38,7 @@ void	check_south(char *s, t_param *param)
 	while (s[i] != 'O')
 		i++;
 	i++;
-	i = i + check_path(s + i, s, param);
+	i = i + check_path(s + i);
 	check_end(s + i, s, param);
 	param->south_presence = 1;
 }
@@ -53,7 +53,7 @@ void	check_west(char *s, t_param *param)
 	while (s[i] != 'E')
 		i++;
 	i++;
-	i = i + check_path(s + i, s, param);
+	i = i + check_path(s + i);
 	check_end(s + i, s, param);
 	param->west_presence = 1;
 }
@@ -68,7 +68,7 @@ void	check_east(char *s, t_param *param)
 	while (s[i] != 'A')
 		i++;
 	i++;
-	i = i + check_path(s + i, s, param);
+	i = i + check_path(s + i);
 	check_end(s + i, s, param);
 	param->east_presence = 1;
 }
@@ -83,7 +83,7 @@ void	check_sprite(char *s, t_param *param)
 	while (s[i] != 'S')
 		i++;
 	i++;
-	i = i + check_path(s + i, s, param);
+	i = i + check_path(s + i);
 	check_end(s + i, s, param);
 	param->sprite_presence = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:20:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 23:13:58 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 15:42:16 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_ceil(char *s, t_param *param);
 void	check_resolution(char *s, t_param *param);
 int		check_int(char *s1, char *s2, t_param *param);
 int		check_color(char *s1, char *s2, t_param *param);
-int		check_path(char *s1, char *s2, t_param *param);
+int		check_path(char *s1);
 void	check_end(char *s1, char *s2, t_param *param);
 int		check_space(char *s);
 void	check_type(char *s, t_param *param);
