@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/05/06 22:42:33 by avarnier         ###   ########.fr        #
+#    Updated: 2021/05/11 21:40:30 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = 	sources/free/free_error.c \
 		sources/free/free_save.c \
 		sources/free/free_cross_exit.c \
 		sources/free/free_texture_exit.c \
+		sources/free/free_game.c \
 		sources/init/init_game.c \
 		sources/init/init_param.c \
 		sources/init/init_player.c \
@@ -80,6 +81,7 @@ SRC_BONUS = 	sources/free/free_error.c \
 				sources/free/free_save.c \
 				sources/free/free_cross_exit.c \
 				sources/free/free_texture_exit.c \
+				sources/free/free_game.c \
 				sources/init/init_game.c \
 				sources/init/init_param.c \
 				sources/init/init_player.c \

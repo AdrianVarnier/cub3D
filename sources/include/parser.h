@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:20:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 15:42:16 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 21:45:44 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		check_path(char *s1);
 void	check_end(char *s1, char *s2, t_param *param);
 int		check_space(char *s);
 void	check_type(char *s, t_param *param);
-void	check_pathname(char *s);
+void	check_pathname(char *s, t_game *game);
 void	check_map_char(char *s, t_param *param);
 void	check_error(int fd, char *s, t_param *param);
 void	get_map(int fd, char *s, t_game *game);

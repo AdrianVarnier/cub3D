@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:35:22 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 23:07:55 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/11 21:42:56 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_type(char *s, t_param *param)
 		free_error("wrong type\n", s, param);
 }
 
-void	check_pathname(char *s)
+void	check_pathname(char *s, t_game *game)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ void	check_pathname(char *s)
 	if (s[i + 1] != 'c' || s[i + 2] != 'u' || s[i + 3] != 'b')
 	{
 		ft_putstr_fd("No .cub file\n", 0);
-		exit(0);
+		free_game(game);
 	}
 }
 
