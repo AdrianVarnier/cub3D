@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:13:21 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 23:04:19 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:52:53 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void			check_error(int fd, char *s, t_param *param, t_game *game)
 	if (ret == 0 && c != 8)
 	{
 		free(param);
-		ft_putstr_fd("Missing parameter", 0);
+		ft_putstr_fd("Error\nMissing parameter\n", 0);
 		exit(0);
 	}
 	check_map_line(fd, s, param);

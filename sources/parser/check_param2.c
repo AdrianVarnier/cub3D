@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:58:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/28 00:42:35 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:55:15 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_resolution(char *s, t_param *param)
 
 	i = 0;
 	if (param->resolution_presence == 1)
-		free_error("Too much resolution\n", s, param);
+		free_error("Error\nToo much resolution\n", s, param);
 	while (s[i] != 'R')
 		i++;
 	i++;
@@ -36,7 +36,7 @@ void	check_ceil(char *s, t_param *param)
 
 	i = 0;
 	if (param->ceil_presence == 1)
-		free_error("Too much ceiling\n", s, param);
+		free_error("Error\nToo much ceiling\n", s, param);
 	while (s[i] != 'C')
 		i++;
 	i++;
@@ -51,7 +51,7 @@ void	check_floor(char *s, t_param *param)
 
 	i = 0;
 	if (param->floor_presence == 1)
-		free_error("Too much floor\n", s, param);
+		free_error("Error\nToo much floor\n", s, param);
 	while (s[i] != 'F')
 		i++;
 	i++;
@@ -99,7 +99,7 @@ void	check_map_line(int fd, char *s, t_param *param)
 		ret = get_next_line(fd, &s);
 	}
 	if (ret == 0)
-		free_error("No map\n", s, param);
+		free_error("Error\nNo map\n", s, param);
 	while (ret > 0)
 	{
 		check_map_char(s, param);

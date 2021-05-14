@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 23:55:05 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/14 13:10:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:53:45 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	check_one_map(t_game *game)
 	{
 		if (check_space(game->param->map[i]) == 1 &&
 		check_space(game->param->map[i + 1]) == 0)
-			free_param_error("More than one map\n", game);
+			free_param_error("Error\nMore than one map\n", game);
 		i++;
 	}
 }
@@ -44,7 +44,7 @@ static void	check_map_space1(char **map, t_game *game)
 				|| (map[i][j + 1] != '1' && map[i][j + 1] != ' ')
 				|| (map[i - 1][j] != '1' && map[i - 1][j] != ' ')
 				|| (map[i + 1][j] != '1' && map[i + 1][j] != ' '))
-					free_param_error("Map is open\n", game);
+					free_param_error("Error\nMap is open\n", game);
 			}
 			j++;
 		}
@@ -70,7 +70,7 @@ static void	check_map_space2(char **map, t_game *game)
 				|| (map[i + 1][j - 1] != '1' && map[i + 1][j - 1] != ' ')
 				|| (map[i - 1][j + 1] != '1' && map[i - 1][j + 1] != ' ')
 				|| (map[i + 1][j + 1] != '1' && map[i + 1][j + 1] != ' '))
-					free_param_error("Map is open\n", game);
+					free_param_error("Error\nMap is open\n", game);
 			}
 			j++;
 		}
@@ -101,7 +101,7 @@ static void	check_one_player(char **map, t_game *game)
 		i++;
 	}
 	if (k != 1)
-		free_param_error("Wrong number player\n", game);
+		free_param_error("Error\nWrong number player\n", game);
 }
 
 void		check_map(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 02:06:11 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 22:24:09 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:48:40 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	free_init(t_game *game)
 		free(game->image);
 	if (game->mlx != NULL)
 		free(game->mlx);
-	ft_putstr_fd("malloc error initialization", 0);
+	ft_putstr_fd("Error\nmalloc error initialization\n", 0);
 	exit(0);
 }
 

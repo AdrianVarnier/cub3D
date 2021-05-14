@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:05:01 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 15:49:00 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:54:34 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_north(char *s, t_param *param)
 
 	i = 0;
 	if (param->north_presence == 1)
-		free_error("Too much north\n", s, param);
+		free_error("Error\nToo much north\n", s, param);
 	while (s[i] != 'O')
 		i++;
 	i++;
@@ -34,7 +34,7 @@ void	check_south(char *s, t_param *param)
 
 	i = 0;
 	if (param->south_presence == 1)
-		free_error("Too much south\n", s, param);
+		free_error("Error\nToo much south\n", s, param);
 	while (s[i] != 'O')
 		i++;
 	i++;
@@ -49,7 +49,7 @@ void	check_west(char *s, t_param *param)
 
 	i = 0;
 	if (param->west_presence == 1)
-		free_error("Too much west\n", s, param);
+		free_error("Error\nToo much west\n", s, param);
 	while (s[i] != 'E')
 		i++;
 	i++;
@@ -64,7 +64,7 @@ void	check_east(char *s, t_param *param)
 
 	i = 0;
 	if (param->east_presence == 1)
-		free_error("Too much east\n", s, param);
+		free_error("Error\nToo much east\n", s, param);
 	while (s[i] != 'A')
 		i++;
 	i++;
@@ -79,7 +79,7 @@ void	check_sprite(char *s, t_param *param)
 
 	i = 0;
 	if (param->sprite_presence == 1)
-		free_error("Too much sprite\n", s, param);
+		free_error("Error\nToo much sprite\n", s, param);
 	while (s[i] != 'S')
 		i++;
 	i++;

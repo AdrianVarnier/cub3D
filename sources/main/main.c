@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/07 16:17:04 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/14 14:51:58 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int			main(int argc, char **argv)
 		save_exit(game, argv[1]);
 	if (argc != 2)
 	{
-		ft_putstr_fd("Wrong argument", 0);
+		ft_putstr_fd("Error\nWrong argument\n", 0);
 		exit(0);
 	}
 	init_game(&game);
