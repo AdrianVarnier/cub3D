@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 18:31:01 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:26:28 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void			raycast(t_game *game)
 		check_horizontal_intersection2(game->param, game->player,
 		angle), check_vertical_intersection2(game->param,
 		game->player, angle), angle, game);
-		render(game, distance, x);
+		render(game, distance, x - 1);
 	}
 }

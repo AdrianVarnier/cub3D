@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 16:47:16 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 17:26:47 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/15 18:59:22 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void		free_save(t_game *game)
 {
 	int i;
 
+	mlx_do_key_autorepeaton(game->mlx->mlx);
 	free(game->param->north);
 	free(game->param->south);
 	free(game->param->east);

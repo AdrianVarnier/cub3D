@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 23:44:09 by avarnier          #+#    #+#             */
-/*   Updated: 2021/04/12 18:19:21 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/15 21:10:28 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void		save(t_game *game)
 	int	x;
 	int	y;
 
-	y = game->param->height;
-	if ((fd = open("./image.bmp", O_CREAT | O_RDWR)) == -1)
+	y = game->param->height - 1;
+	if ((fd = open("./image.bmp", O_RDWR  | O_CREAT, S_IRUSR | S_IWUSR)) == -1)
 		exit(0);
 	bmp_header(game, fd);
 	while (y >= 0)
@@ -61,5 +61,5 @@ void		save(t_game *game)
 		}
 		y--;
 	}
-	system("chmod 777 image.bmp");
+	close(fd);
 }
