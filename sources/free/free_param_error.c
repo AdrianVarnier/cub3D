@@ -6,13 +6,13 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:45:38 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 22:53:32 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 02:18:30 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
 
-void	free_param_error(char *s, t_game *game)
+static void	free_param_error1(t_game *game)
 {
 	int	i;
 
@@ -30,6 +30,21 @@ void	free_param_error(char *s, t_game *game)
 	free(game->param->map[i]);
 	free(game->param->map);
 	free(game->param);
+}
+
+void		free_param_error(char *s, t_game *game)
+{
+	free_param_error1(game);
+	free(game->texture->north);
+	free(game->texture->south);
+	free(game->texture->east);
+	free(game->texture->west);
+	free(game->texture->sprite);
+	free(game->texture);
+	free(game->image);
+	free(game->mlx);
+	free(game->sprite);
+	free(game->player);
 	free(game);
 	ft_putstr_fd(s, 0);
 	exit(0);

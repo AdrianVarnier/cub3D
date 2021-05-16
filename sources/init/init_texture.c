@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 17:51:22 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 15:53:56 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 16:03:45 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ static void	init_texture1(t_game *game)
 	game->texture->south->image == NULL
 	|| game->texture->east->image == NULL || game->texture->west->image == NULL
 	|| game->texture->sprite->image == NULL)
+	{
+		ft_putstr_fd("Error\nWrong Path\n", 0);
 		free_texture_exit(game);
+	}
 }
 
 static void	init_texture2(t_game *game)

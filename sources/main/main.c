@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/14 14:51:58 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:59:52 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ static void	check_window(t_param *param, t_game *game)
 		param->width = x;
 	if (param->height > y)
 		param->height = y;
+	if (param->width == 0 || param->height == 0)
+	{
+		ft_putstr_fd("Error\nWrong resolution\n", 0);
+		free_texture_exit(game);
+	}
 	mlx_do_key_autorepeatoff(game->mlx->mlx);
 }
 

@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:20:19 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/11 22:59:42 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:34:38 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@
 # include <stdio.h>
 # include "struct.h"
 
-void	check_north(char *s, t_param *param);
-void	check_south(char *s, t_param *param);
-void	check_west(char *s, t_param *param);
-void	check_east(char *s, t_param *param);
-void	check_sprite(char *s, t_param *param);
-void	check_map_line(int fd, char *s, t_param *param);
-void	check_param(char *s, t_param *param);
-void	check_floor(char *s, t_param *param);
-void	check_ceil(char *s, t_param *param);
-void	check_resolution(char *s, t_param *param);
-int		check_int(char *s1, char *s2, t_param *param);
-int		check_color(char *s1, char *s2, t_param *param);
+void	check_north(char *s, t_game *game);
+void	check_south(char *s, t_game *game);
+void	check_west(char *s, t_game *game);
+void	check_east(char *s, t_game *game);
+void	check_sprite(char *s, t_game *game);
+void	check_map_line(int fd, char *s, t_game *game);
+void	check_param(char *s, t_game *game);
+void	check_floor(char *s, t_game *game);
+void	check_ceil(char *s, t_game *game);
+void	check_resolution(char *s, t_game *game);
+int		check_int(char *s1, char *s2, t_game *game);
+int		check_color(char *s1, char *s2, t_game *game);
 int		check_path(char *s1);
-void	check_end(char *s1, char *s2, t_param *param);
+void	check_end(char *s1, char *s2, t_game *game);
 int		check_space(char *s);
-void	check_type(char *s, t_param *param);
+void	check_type(char *s, t_game *game);
 void	check_pathname(char *s, t_game *game);
-void	check_map_char(char *s, t_param *param);
-void	check_error(int fd, char *s, t_param *param, t_game *game);
+void	check_map_char(char *s, t_game *game);
+void	check_error(int fd, char *s, t_game *game);
 void	get_map(int fd, char *s, t_game *game);
 void	get_north(char *s, t_param *param);
 void	get_south(char *s, t_param *param);

@@ -6,84 +6,84 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:05:01 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/14 14:54:34 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:36:37 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parser.h"
 #include "free.h"
 
-void	check_north(char *s, t_param *param)
+void	check_north(char *s, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (param->north_presence == 1)
-		free_error("Error\nToo much north\n", s, param);
+	if (game->param->north_presence == 1)
+		free_error("Error\nToo much north\n", s, game);
 	while (s[i] != 'O')
 		i++;
 	i++;
 	i = i + check_path(s + i);
-	check_end(s + i, s, param);
-	param->north_presence = 1;
+	check_end(s + i, s, game);
+	game->param->north_presence = 1;
 }
 
-void	check_south(char *s, t_param *param)
+void	check_south(char *s, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (param->south_presence == 1)
-		free_error("Error\nToo much south\n", s, param);
+	if (game->param->south_presence == 1)
+		free_error("Error\nToo much south\n", s, game);
 	while (s[i] != 'O')
 		i++;
 	i++;
 	i = i + check_path(s + i);
-	check_end(s + i, s, param);
-	param->south_presence = 1;
+	check_end(s + i, s, game);
+	game->param->south_presence = 1;
 }
 
-void	check_west(char *s, t_param *param)
+void	check_west(char *s, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (param->west_presence == 1)
-		free_error("Error\nToo much west\n", s, param);
+	if (game->param->west_presence == 1)
+		free_error("Error\nToo much west\n", s, game);
 	while (s[i] != 'E')
 		i++;
 	i++;
 	i = i + check_path(s + i);
-	check_end(s + i, s, param);
-	param->west_presence = 1;
+	check_end(s + i, s, game);
+	game->param->west_presence = 1;
 }
 
-void	check_east(char *s, t_param *param)
+void	check_east(char *s, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (param->east_presence == 1)
-		free_error("Error\nToo much east\n", s, param);
+	if (game->param->east_presence == 1)
+		free_error("Error\nToo much east\n", s, game);
 	while (s[i] != 'A')
 		i++;
 	i++;
 	i = i + check_path(s + i);
-	check_end(s + i, s, param);
-	param->east_presence = 1;
+	check_end(s + i, s, game);
+	game->param->east_presence = 1;
 }
 
-void	check_sprite(char *s, t_param *param)
+void	check_sprite(char *s, t_game *game)
 {
 	int	i;
 
 	i = 0;
-	if (param->sprite_presence == 1)
-		free_error("Error\nToo much sprite\n", s, param);
+	if (game->param->sprite_presence == 1)
+		free_error("Error\nToo much sprite\n", s, game);
 	while (s[i] != 'S')
 		i++;
 	i++;
 	i = i + check_path(s + i);
-	check_end(s + i, s, param);
-	param->sprite_presence = 1;
+	check_end(s + i, s, game);
+	game->param->sprite_presence = 1;
 }

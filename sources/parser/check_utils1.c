@@ -6,7 +6,7 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:33:24 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/14 14:56:55 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/16 15:30:51 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "free.h"
 #include "utils.h"
 
-int		check_int(char *s1, char *s2, t_param *param)
+int		check_int(char *s1, char *s2, t_game *game)
 {
 	int	i;
 
@@ -22,15 +22,15 @@ int		check_int(char *s1, char *s2, t_param *param)
 	while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
 		i++;
 	if (ft_isdigit(s1[i]) == 0)
-		free_error("Error\nMissing resolution\n", s2, param);
+		free_error("Error\nMissing resolution\n", s2, game);
 	while (ft_isdigit(s1[i]) > 0)
 		i++;
 	if (s1[i] == '.')
-		free_error("Error\nDo not accept float\n", s2, param);
+		free_error("Error\nDo not accept float\n", s2, game);
 	return (i);
 }
 
-int		check_color(char *s1, char *s2, t_param *param)
+int		check_color(char *s1, char *s2, t_game *game)
 {
 	int	i;
 	int c;
@@ -42,15 +42,15 @@ int		check_color(char *s1, char *s2, t_param *param)
 		while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
 			i++;
 		if (ft_isdigit(s1[i]) == 0)
-			free_error("Error\nMissing color\n", s2, param);
+			free_error("Error\nMissing color\n", s2, game);
 		if (ft_atoi(s1 + i) > 255 || ft_atoi(s1 + i) < 0)
-			free_error("Error\nWrong color\n", s2, param);
+			free_error("Error\nWrong color\n", s2, game);
 		while (ft_isdigit(s1[i]) > 0)
 			i++;
 		while (s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13))
 			i++;
 		if (s1[i] != ',' && c != 1)
-			free_error("Error\nMissing color\n", s2, param);
+			free_error("Error\nMissing color\n", s2, game);
 		if (c != 1)
 			i++;
 		c--;
@@ -70,7 +70,7 @@ int		check_path(char *s1)
 	return (i);
 }
 
-void	check_end(char *s1, char *s2, t_param *param)
+void	check_end(char *s1, char *s2, t_game *game)
 {
 	int	i;
 
@@ -78,7 +78,7 @@ void	check_end(char *s1, char *s2, t_param *param)
 	while (s1[i] != '\0')
 	{
 		if (!(s1[i] == ' ' || (s1[i] >= 9 && s1[i] <= 13)))
-			free_error("Error\nToo much arguments\n", s2, param);
+			free_error("Error\nToo much arguments\n", s2, game);
 		i++;
 	}
 }
