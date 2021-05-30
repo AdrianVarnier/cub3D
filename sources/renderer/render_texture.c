@@ -14,7 +14,7 @@
 #include "math.h"
 #include "raycaster.h"
 
-int			get_texture_pixel_north(t_texture *texture, double y)
+int	get_texture_pixel_north(t_texture *texture, double y)
 {
 	int		color;
 	double	x;
@@ -26,11 +26,11 @@ int			get_texture_pixel_north(t_texture *texture, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->north->data + ((int)y
-	* texture->north->ls + (int)x * (texture->north->bpp / 8)));
+				* texture->north->ls + (int)x * (texture->north->bpp / 8)));
 	return (color);
 }
 
-int			get_texture_pixel_south(t_texture *texture, double y)
+int	get_texture_pixel_south(t_texture *texture, double y)
 {
 	int		color;
 	double	x;
@@ -42,11 +42,11 @@ int			get_texture_pixel_south(t_texture *texture, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->south->data + ((int)y
-	* texture->south->ls + (int)x * (texture->south->bpp / 8)));
+				* texture->south->ls + (int)x * (texture->south->bpp / 8)));
 	return (color);
 }
 
-int			get_texture_pixel_east(t_texture *texture, double y)
+int	get_texture_pixel_east(t_texture *texture, double y)
 {
 	int		color;
 	double	x;
@@ -58,11 +58,11 @@ int			get_texture_pixel_east(t_texture *texture, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->east->data + ((int)y
-	* texture->east->ls + (int)x * (texture->east->bpp / 8)));
+				* texture->east->ls + (int)x * (texture->east->bpp / 8)));
 	return (color);
 }
 
-int			get_texture_pixel_west(t_texture *texture, double y)
+int	get_texture_pixel_west(t_texture *texture, double y)
 {
 	int		color;
 	double	x;
@@ -74,11 +74,11 @@ int			get_texture_pixel_west(t_texture *texture, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->west->data + ((int)y
-	* texture->west->ls + (int)x * (texture->west->bpp / 8)));
+				* texture->west->ls + (int)x * (texture->west->bpp / 8)));
 	return (color);
 }
 
-int			get_texture_pixel_sprite(t_texture *texture, double x, double y)
+int	get_texture_pixel_sprite(t_texture *texture, double x, double y)
 {
 	int	color;
 
@@ -89,6 +89,6 @@ int			get_texture_pixel_sprite(t_texture *texture, double x, double y)
 	if (y < 0)
 		y = 0;
 	color = *(int *)(texture->sprite->data + ((int)y
-	* texture->sprite->ls + (int)x * (texture->sprite->bpp / 8)));
+				* texture->sprite->ls + (int)x * (texture->sprite->bpp / 8)));
 	return (color);
 }

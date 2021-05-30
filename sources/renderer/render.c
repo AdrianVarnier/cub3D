@@ -15,7 +15,7 @@
 
 static void	pixel_put(t_image *image, int x, int y, int color)
 {
-	char *dst;
+	char	*dst;
 
 	dst = image->data + (y * image->ls + x * (image->bpp / 8));
 	*(int *)dst = color;
@@ -49,14 +49,16 @@ double real_wall_stripe_height)
 	{
 		if (game->texture->orientation == 'N')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
-			- wall_stripe_height / 2 + c, get_texture_pixel_north(game->texture,
-			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ real_wall_stripe_height));
+				- wall_stripe_height / 2 + c,
+				get_texture_pixel_north(game->texture,
+					(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
+					/ real_wall_stripe_height));
 		if (game->texture->orientation == 'S')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
-			- wall_stripe_height / 2 + c, get_texture_pixel_south(game->texture,
-			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ real_wall_stripe_height));
+				- wall_stripe_height / 2 + c,
+				get_texture_pixel_south(game->texture,
+					(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
+					/ real_wall_stripe_height));
 		c++;
 	}
 }
@@ -71,26 +73,28 @@ double real_wall_stripe_height)
 	{
 		if (game->texture->orientation == 'E')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
-			- wall_stripe_height / 2 + c, get_texture_pixel_east(game->texture,
-			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ real_wall_stripe_height));
+				- wall_stripe_height / 2 + c,
+				get_texture_pixel_east(game->texture,
+					(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
+					/ real_wall_stripe_height));
 		if (game->texture->orientation == 'W')
 			pixel_put(game->image, x, (game->param->height - 1) / 2
-			- wall_stripe_height / 2 + c, get_texture_pixel_west(game->texture,
-			(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
-			/ real_wall_stripe_height));
+				- wall_stripe_height / 2 + c,
+				get_texture_pixel_west(game->texture,
+					(c + real_wall_stripe_height / 2 - wall_stripe_height / 2)
+					/ real_wall_stripe_height));
 		c++;
 	}
 }
 
-void		render(t_game *game, double distance, int x)
+void	render(t_game *game, double distance, int x)
 {
 	double	wall_stripe_height;
 	double	real_wall_stripe_height;
 	double	projection_plane_distance;
 
 	projection_plane_distance = game->param->width / 2
-	/ tan(degree_to_radian(FOV) / 2);
+		/ tan(degree_to_radian(FOV) / 2);
 	wall_stripe_height = TILE_SIZE / distance * projection_plane_distance;
 	real_wall_stripe_height = TILE_SIZE / distance * projection_plane_distance;
 	if (wall_stripe_height >= game->param->height)

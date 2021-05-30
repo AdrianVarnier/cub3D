@@ -40,14 +40,15 @@ static void	bmp_header(t_game *game, int fd)
 	write(fd, &tmp, 4);
 }
 
-void		save(t_game *game)
+void	save(t_game *game)
 {
 	int	fd;
 	int	x;
 	int	y;
 
 	y = game->param->height - 1;
-	if ((fd = open("./image.bmp", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR)) == -1)
+	fd = open("./image.bmp", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+	if (fd == -1)
 		exit(0);
 	bmp_header(game, fd);
 	while (y >= 0)
@@ -56,7 +57,7 @@ void		save(t_game *game)
 		while (x < game->param->width)
 		{
 			write(fd, &game->image->data[y * game->image->ls + x
-			* (game->image->bpp / 8)], 4);
+				* (game->image->bpp / 8)], 4);
 			x++;
 		}
 		y--;

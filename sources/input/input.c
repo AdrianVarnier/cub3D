@@ -22,9 +22,9 @@ static void	move_up_down(t_game *game)
 
 	move_step = game->player->walk_direction1 * game->player->move_speed;
 	new_positionx = game->player->x
-	+ cos(game->player->rotation_angle) * move_step;
+		+ cos(game->player->rotation_angle) * move_step;
 	new_positiony = game->player->y
-	- sin(game->player->rotation_angle) * move_step;
+		- sin(game->player->rotation_angle) * move_step;
 	if (game->param->map[(int)(new_positiony / TILE_SIZE)]
 	[(int)(new_positionx / TILE_SIZE)] != '1')
 	{
@@ -41,9 +41,9 @@ static void	move_left_right(t_game *game)
 
 	move_step = game->player->walk_direction2 * game->player->move_speed;
 	new_positionx = game->player->x
-	+ cos(game->player->rotation_angle + M_PI / 2) * move_step;
+		+ cos(game->player->rotation_angle + M_PI / 2) * move_step;
 	new_positiony = game->player->y
-	- sin(game->player->rotation_angle + M_PI / 2) * move_step;
+		- sin(game->player->rotation_angle + M_PI / 2) * move_step;
 	if (game->param->map[(int)(new_positiony / TILE_SIZE)]
 	[(int)(new_positionx / TILE_SIZE)] != '1')
 	{
@@ -52,15 +52,15 @@ static void	move_left_right(t_game *game)
 	}
 }
 
-void		movement(t_game *game)
+void	movement(t_game *game)
 {
 	game->player->rotation_angle = normalized_angle(game->player->rotation_angle
-	+ game->player->turn_direction * game->player->rotation_speed);
+			+ game->player->turn_direction * game->player->rotation_speed);
 	move_up_down(game);
 	move_left_right(game);
 }
 
-int			press_input(int key, t_game *game)
+int	press_input(int key, t_game *game)
 {
 	if (key == ESCAPE)
 		free_exit(game);
@@ -79,7 +79,7 @@ int			press_input(int key, t_game *game)
 	return (0);
 }
 
-int			released_input(int key, t_player *player)
+int	released_input(int key, t_player *player)
 {
 	if (key == UP)
 		player->walk_direction1 = 0;
