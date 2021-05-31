@@ -73,7 +73,7 @@ static void	get_param(char *s, t_param *param)
 		get_ceil(s, param);
 }
 
-void		get_all_param(int fd, char *s, t_game *game)
+void	get_all_param(int fd, char *s, t_game *game)
 {
 	int	c;
 

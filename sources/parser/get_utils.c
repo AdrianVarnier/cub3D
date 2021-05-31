@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 19:11:33 by avarnier          #+#    #+#             */
-/*   Updated: 2021/02/27 19:24:09 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:41:43 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ char	*ft_strjoin_free(char *s1, char *s2)
 
 	if (!s1 || !s2)
 		return (0);
-	if (!(cpy = (char *)malloc(sizeof(char)
-	* (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	cpy = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (cpy == NULL)
 		return (0);
 	ft_strlcpy(cpy, s1, ft_strlen(s1) + 1);
 	ft_strlcat(cpy, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
@@ -28,7 +29,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (cpy);
 }
 
-int		get_color(char *s)
+int	get_color(char *s)
 {
 	int		i;
 	char	*hexa;
@@ -38,25 +39,23 @@ int		get_color(char *s)
 	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
 		i++;
 	x = ft_atoi(s + i);
-	hexa = (x == 0 ? ft_strdup("00") : ft_itoa_base(x, "0123456789abcdef"));
+	hexa = first_hexa(x);
 	while (s[i] != ',')
 		i++;
 	i++;
 	x = ft_atoi(s + i);
-	hexa = (x == 0 ? ft_strjoin_free(hexa, ft_strdup("00")) :
-	ft_strjoin_free(hexa, ft_itoa_base(x, "0123456789abcdef")));
+	hexa = last_hexa(x, hexa);
 	while (s[i] != ',')
 		i++;
 	i++;
 	x = ft_atoi(s + i);
-	hexa = (x == 0 ? ft_strjoin_free(hexa, ft_strdup("00")) :
-	ft_strjoin_free(hexa, ft_itoa_base(x, "0123456789abcdef")));
+	hexa = last_hexa(x, hexa);
 	x = ft_atoi_base(hexa, "0123456789abcdef");
 	free(hexa);
 	return (x);
 }
 
-int		get_int(char *s)
+int	get_int(char *s)
 {
 	int		i;
 	int		x;
@@ -68,7 +67,7 @@ int		get_int(char *s)
 	return (x);
 }
 
-int		pass_int(char *s)
+int	pass_int(char *s)
 {
 	int	i;
 
@@ -94,7 +93,8 @@ char	*get_path(char *s)
 		i++;
 	while (s[j] == ' ' || (s[j] >= 9 && s[j] <= 13))
 		j--;
-	if (!(cpy = (char *)malloc(sizeof(char) * (j - i + 2))))
+	cpy = (char *)malloc(sizeof(char) * (j - i + 2));
+	if (cpy == NULL)
 		return (NULL);
 	while (i <= j)
 	{

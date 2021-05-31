@@ -25,7 +25,8 @@ void	parse(char *pathname, t_game *game)
 
 	s = NULL;
 	check_pathname(pathname, game);
-	if ((fd = open(pathname, O_RDONLY)) == -1)
+	fd = open(pathname, O_RDONLY);
+	if (fd == -1)
 	{
 		ft_putstr_fd("Error\nCannot open file.cub\n", 0);
 		free_game(game);
@@ -33,8 +34,9 @@ void	parse(char *pathname, t_game *game)
 	check_error(fd, s, game);
 	close(fd);
 	fd = open(pathname, O_RDONLY);
-	if (!(game->param->map = (char **)malloc(sizeof(char *) *
-	(game->param->map_height + 1 + 4))))
+	game->param->map = (char **)malloc(sizeof(char *)
+			* (game->param->map_height + 1 + 4));
+	if (game->param->map == NULL)
 		free_param_error("Error\nmap malloc error\n", game);
 	game->param->map[game->param->map_height + 4] = NULL;
 	get_all_param(fd, s, game);

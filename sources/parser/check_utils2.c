@@ -15,12 +15,12 @@
 
 void	check_type(char *s, t_game *game)
 {
-	if (s[0] != 'R' && s[0] != 'S' && s[0] != 'F' && s[0] != 'C' &&
-	s[0] != 'N' && s[0] != 'W' && s[0] != 'E')
+	if (s[0] != 'R' && s[0] != 'S' && s[0] != 'F' && s[0] != 'C'
+		&& s[0] != 'N' && s[0] != 'W' && s[0] != 'E')
 		free_error("Error\nwrong type\n", s, game);
-	if ((s[0] == 'N' && s[1] != 'O') || (s[0] == 'W' && s[1] != 'E') ||
-	(s[0] == 'E' && s[1] != 'A') || (s[0] == 'S' && s[1] != 'O' &&
-	(!(s[1] == ' ' || (s[1] >= 9 && s[1] <= 13)))))
+	if ((s[0] == 'N' && s[1] != 'O') || (s[0] == 'W' && s[1] != 'E')
+		|| (s[0] == 'E' && s[1] != 'A') || (s[0] == 'S' && s[1] != 'O'
+			&& (!(s[1] == ' ' || (s[1] >= 9 && s[1] <= 13)))))
 		free_error("Error\nwrong type\n", s, game);
 }
 
@@ -45,9 +45,9 @@ void	check_map_char(char *s, t_game *game)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != '0' && s[i] != '1' && s[i] != '2' &&
-		s[i] != 'N' && s[i] != 'S' && s[i] != 'W' && s[i] != 'E'
-		&& s[i] != ' ' && (!(s[i] >= 9 && s[i] <= 13)))
+		if (s[i] != '0' && s[i] != '1' && s[i] != '2'
+			&& s[i] != 'N' && s[i] != 'S' && s[i] != 'W' && s[i] != 'E'
+			&& s[i] != ' ' && (!(s[i] >= 9 && s[i] <= 13)))
 			free_error("Error\nWrong map\n", s, game);
 		i++;
 	}

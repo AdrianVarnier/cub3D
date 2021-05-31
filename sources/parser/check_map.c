@@ -20,8 +20,8 @@ static void	check_one_map(t_game *game)
 	i = 2;
 	while (i < game->param->map_height + 1)
 	{
-		if (check_space(game->param->map[i]) == 1 &&
-		check_space(game->param->map[i + 1]) == 0)
+		if (check_space(game->param->map[i]) == 1
+			&& check_space(game->param->map[i + 1]) == 0)
 			free_param_error("Error\nMore than one map\n", game);
 		i++;
 	}
@@ -104,7 +104,7 @@ static void	check_one_player(char **map, t_game *game)
 		free_param_error("Error\nWrong number player\n", game);
 }
 
-void		check_map(t_game *game)
+void	check_map(t_game *game)
 {
 	check_one_map(game);
 	check_map_space1(game->param->map, game);

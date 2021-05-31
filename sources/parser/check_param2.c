@@ -88,8 +88,8 @@ void	check_param(char *s, t_game *game)
 
 void	check_map_line(int fd, char *s, t_game *game)
 {
-	int ret;
-	int c;
+	int	ret;
+	int	c;
 
 	c = 0;
 	ret = get_next_line(fd, &s);

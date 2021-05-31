@@ -14,14 +14,14 @@
 #include "free.h"
 #include "utils.h"
 
-static void		read_error(char *s, t_game *game)
+static void	read_error(char *s, t_game *game)
 {
 	ft_putstr_fd("Error\nRead error\n", 0);
 	free(s);
 	free_game(game);
 }
 
-void			check_error(int fd, char *s, t_game *game)
+void	check_error(int fd, char *s, t_game *game)
 {
 	int	ret;
 	int	c;

@@ -22,18 +22,15 @@ static char	*get_map_line(char *s, t_game *game, int c)
 	char	*cpy;
 
 	l = game->param->map_width;
-	if (!(cpy = (char *)malloc(sizeof(char) * (l + 1 + 4))))
+	cpy = (char *)malloc(sizeof(char) * (l + 1 + 4));
+	if (cpy == NULL)
 		free_map_line(s, c, game);
 	i = 2;
 	j = 0;
 	cpy[0] = ' ';
 	cpy[1] = ' ';
 	while (s[j] != '\0')
-	{
-		cpy[i] = s[j];
-		i++;
-		j++;
-	}
+		cpy[i++] = s[j++];
 	while (i < l + 4)
 	{
 		cpy[i] = ' ';
@@ -43,7 +40,7 @@ static char	*get_map_line(char *s, t_game *game, int c)
 	return (cpy);
 }
 
-void		get_map(int fd, char *s, t_game *game)
+void	get_map(int fd, char *s, t_game *game)
 {
 	int	ret;
 	int	i;

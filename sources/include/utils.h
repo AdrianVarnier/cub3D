@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:26:55 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/06 22:39:23 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:43:01 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ char	*ft_strdup(const char *s);
 char	*ft_itoa_base(int n, char *base);
 int		ft_atoi_base(char *s, char *base);
 void	ft_putstr_fd(char *s, int fd);
+char	*first_hexa(int x);
+char	*last_hexa(int x, char *hexa);
 
 #endif

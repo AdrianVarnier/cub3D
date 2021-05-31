@@ -14,7 +14,7 @@
 #include "free.h"
 #include "utils.h"
 
-int		check_int(char *s1, char *s2, t_game *game)
+int	check_int(char *s1, char *s2, t_game *game)
 {
 	int	i;
 
@@ -30,10 +30,10 @@ int		check_int(char *s1, char *s2, t_game *game)
 	return (i);
 }
 
-int		check_color(char *s1, char *s2, t_game *game)
+int	check_color(char *s1, char *s2, t_game *game)
 {
 	int	i;
-	int c;
+	int	c;
 
 	i = 0;
 	c = 3;
@@ -58,7 +58,7 @@ int		check_color(char *s1, char *s2, t_game *game)
 	return (i);
 }
 
-int		check_path(char *s1)
+int	check_path(char *s1)
 {
 	int	i;
 
@@ -83,7 +83,7 @@ void	check_end(char *s1, char *s2, t_game *game)
 	}
 }
 
-int		check_space(char *s)
+int	check_space(char *s)
 {
 	int	i;
 
