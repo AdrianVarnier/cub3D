@@ -12,7 +12,14 @@
 
 #include "utils.h"
 
-static int		ft_numbers(unsigned int n, char *base)
+static int	ft_negative(int n)
+{
+	if (n < 0)
+		return (1);
+	return (0);
+}
+
+static int	ft_numbers(unsigned int n, char *base)
 {
 	int	counter;
 
@@ -27,7 +34,7 @@ static int		ft_numbers(unsigned int n, char *base)
 	return (counter);
 }
 
-char			*ft_itoa_base(int n, char *base)
+char	*ft_itoa_base(int n, char *base)
 {
 	int				i;
 	unsigned int	nb;
@@ -37,10 +44,11 @@ char			*ft_itoa_base(int n, char *base)
 		nb = -n;
 	else
 		nb = n;
-	if (!(s = (char *)malloc((sizeof(char) *
-	(ft_numbers(nb, base) + 1 + (n < 0 ? 1 : 0))))))
+	s = (char *)malloc((sizeof(char)
+				* (ft_numbers(nb, base) + 1 + ft_negative(n))));
+	if (s == NULL)
 		return (0);
-	i = ft_numbers(nb, base) - 1 + (n < 0 ? 1 : 0);
+	i = ft_numbers(nb, base) - 1 + ft_negative(n);
 	s[i + 1] = '\0';
 	if (n < 0)
 		s[0] = '-';

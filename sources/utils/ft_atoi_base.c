@@ -40,7 +40,7 @@ static int	get_base(char c, char *base)
 	return (i);
 }
 
-int			ft_atoi_base(char *s, char *base)
+int	ft_atoi_base(char *s, char *base)
 {
 	int			i;
 	int			x;

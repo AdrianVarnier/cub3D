@@ -14,7 +14,7 @@
 
 static size_t	ft_strlen_nl(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0' && s[i] != '\n')
@@ -22,7 +22,7 @@ static size_t	ft_strlen_nl(char *s)
 	return (i);
 }
 
-static char		*ft_strjoin_gnl(char *s1, char *s2)
+static char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -30,8 +30,9 @@ static char		*ft_strjoin_gnl(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (!(cpy = (char *)malloc(sizeof(char)
-	* (ft_strlen(s1) + ft_strlen_nl(s2) + 1))))
+	cpy = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen_nl(s2) + 1));
+	if (cpy == NULL)
 		return (0);
 	while (s1[i] != '\0')
 	{
@@ -49,13 +50,14 @@ static char		*ft_strjoin_gnl(char *s1, char *s2)
 	return (cpy);
 }
 
-static char		*ft_strdup_gnl(char *s)
+static char	*ft_strdup_gnl(char *s)
 {
 	int		i;
 	char	*cpy;
 
 	i = 0;
-	if (!(cpy = (char *)malloc(sizeof(char) * (ft_strlen_nl(s) + 1))))
+	cpy = (char *)malloc(sizeof(char) * (ft_strlen_nl(s) + 1));
+	if (cpy == NULL)
 		return (0);
 	while (s[i] != '\0' && s[i] != '\n')
 	{
@@ -66,19 +68,19 @@ static char		*ft_strdup_gnl(char *s)
 	return (cpy);
 }
 
-int				get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static int	ret;
-	static char buffer[1 + 1];
+	static char	buffer[1 + 1];
 
 	*line = ft_strdup_gnl(buffer);
 	if (fd < 0 || !line || read(fd, buffer, 0) == -1 || 1 <= 0)
 		return (-1);
 	if (ft_strchr(buffer, '\n') == 0)
 	{
-		while ((ret = read(fd, buffer, 1)) > 0)
+		while (read(fd, buffer, 1) > 0)
 		{
-			buffer[ret] = '\0';
+			buffer[1] = '\0';
 			*line = ft_strjoin_gnl(*line, buffer);
 			if (ft_strchr(buffer, '\n') != 0)
 				break ;
@@ -90,6 +92,6 @@ int				get_next_line(int fd, char **line)
 		return (0);
 	}
 	ft_memmove(buffer, buffer + ft_strlen_nl(buffer) + 1,
-	ft_strlen(buffer) - ft_strlen_nl(buffer));
+		ft_strlen(buffer) - ft_strlen_nl(buffer));
 	return (1);
 }
