@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/05/31 18:45:12 by avarnier         ###   ########.fr        #
+#    Updated: 2021/06/01 18:13:45 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = 	sources/free/free_error.c \
 		sources/free/free_cross_exit.c \
 		sources/free/free_texture_exit.c \
 		sources/free/free_game.c \
+		sources/free/free_raycast_exit.c \
 		sources/init/init_game.c \
 		sources/init/init_param.c \
 		sources/init/init_player.c \
@@ -52,6 +53,7 @@ SRC = 	sources/free/free_error.c \
 		sources/raycaster/check_vertical_intersection1.c \
 		sources/raycaster/check_vertical_intersection2.c \
 		sources/raycaster/raycast.c \
+		sources/raycaster/raycast_utils.c \
 		sources/renderer/render.c \
 		sources/renderer/render_sprite.c \
 		sources/renderer/render_sprite_utils.c \

@@ -6,14 +6,14 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 20:46:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/15 21:26:28 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/01 18:11:28 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycaster.h"
 #include "renderer.h"
 
-static char		get_orientation(double d1, double d2,
+static char	get_orientation(double d1, double d2,
 				double angle, t_game *game)
 {
 	if (d1 == -1)
@@ -23,10 +23,10 @@ static char		get_orientation(double d1, double d2,
 	if (fabs(d1 - d2) < pow(10, -6))
 	{
 		return (get_orientation(check_horizontal_intersection2(game->param,
-		game->player, angle + M_PI / 2 / game->param->width),
-		check_vertical_intersection2(game->param, game->player,
-		angle + M_PI / 2 / game->param->width),
-		angle + M_PI / 2 / game->param->width, game));
+					game->player, angle + M_PI / 2 / game->param->width),
+				check_vertical_intersection2(game->param, game->player,
+					angle + M_PI / 2 / game->param->width),
+				angle + M_PI / 2 / game->param->width, game));
 	}
 	if (d1 > d2)
 	{
@@ -56,13 +56,13 @@ static double	get_smallest_distance(double d1, double d2,
 	return (d1 * correction);
 }
 
-double			degree_to_radian(double angle)
+double	degree_to_radian(double angle)
 {
 	angle = angle * M_PI / 180;
 	return (angle);
 }
 
-double			normalized_angle(double angle)
+double	normalized_angle(double angle)
 {
 	while (angle >= 2 * M_PI)
 		angle = angle - 2 * M_PI;
@@ -71,31 +71,31 @@ double			normalized_angle(double angle)
 	return (angle);
 }
 
-void			raycast(t_game *game)
+void	raycast(t_game *game)
 {
 	int		x;
 	double	angle;
 	double	distance;
 
 	x = 0;
-	if (!(game->wall_distance = (double *)malloc(sizeof(double)
-	* (game->param->width + 1))))
-		game->wall_distance = NULL;
+	game->wall_distance = (double *)malloc(sizeof(double)
+			* (game->param->width + 1));
+	check_raycast(game->wall_distance, game);
 	game->wall_distance[game->param->width] = -1;
 	while (x++ < game->param->width)
 	{
 		angle = normalized_angle(game->player->rotation_angle
-		- atan((x - game->param->width / 2) / (game->param->width
-		/ 2 / tan(degree_to_radian(FOV) / 2))));
+				- atan((x - game->param->width / 2) / (game->param->width
+						/ 2 / tan(degree_to_radian(FOV) / 2))));
 		distance = get_smallest_distance(check_horizontal_intersection1(
-		game->param, game->player, game->texture, angle),
-		check_vertical_intersection1(game->param, game->player,
-		game->texture, angle), angle, game->player);
+					game->param, game->player, game->texture, angle),
+				check_vertical_intersection1(game->param, game->player,
+					game->texture, angle), angle, game->player);
 		game->wall_distance[x] = distance;
 		game->texture->orientation = get_orientation(
-		check_horizontal_intersection2(game->param, game->player,
-		angle), check_vertical_intersection2(game->param,
-		game->player, angle), angle, game);
+				check_horizontal_intersection2(game->param, game->player,
+					angle), check_vertical_intersection2(game->param,
+					game->player, angle), angle, game);
 		render(game, distance, x - 1);
 	}
 }

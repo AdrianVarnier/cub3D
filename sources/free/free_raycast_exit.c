@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_texture_exit.c                                :+:      :+:    :+:   */
+/*   free_raycast_exit.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 15:42:27 by avarnier          #+#    #+#             */
-/*   Updated: 2021/06/01 17:41:24 by avarnier         ###   ########.fr       */
+/*   Created: 2021/06/01 17:54:28 by avarnier          #+#    #+#             */
+/*   Updated: 2021/06/01 18:05:37 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "free.h"
 #include "mlx.h"
 
-static void	free_texture_exit1(t_game *game)
+static void	free_raycast_exit1(t_game *game)
 {
 	int	i;
 
+	mlx_destroy_image(game->mlx->mlx, game->image->image);
+	mlx_clear_window(game->mlx->mlx, game->mlx->window);
+	mlx_destroy_window(game->mlx->mlx, game->mlx->window);
 	free(game->param->north);
 	free(game->param->south);
 	free(game->param->east);
@@ -36,22 +39,13 @@ static void	free_texture_exit1(t_game *game)
 	free(game->sprite);
 }
 
-static void	free_texture_exit2(t_game *game)
+static void	free_raycast_exit2(t_game *game)
 {
-	if (game->texture->north->image != NULL)
-		mlx_destroy_image(game->mlx->mlx, game->texture->north->image);
-	if (game->texture->south->image != NULL)
-		mlx_destroy_image(game->mlx->mlx, game->texture->south->image);
-	if (game->texture->east->image != NULL)
-		mlx_destroy_image(game->mlx->mlx, game->texture->east->image);
-	if (game->texture->west->image != NULL)
-		mlx_destroy_image(game->mlx->mlx, game->texture->west->image);
-	if (game->texture->sprite->image != NULL)
-		mlx_destroy_image(game->mlx->mlx, game->texture->sprite->image);
-}
-
-static void	free_texture_exit3(t_game *game)
-{
+	mlx_destroy_image(game->mlx->mlx, game->texture->north->image);
+	mlx_destroy_image(game->mlx->mlx, game->texture->south->image);
+	mlx_destroy_image(game->mlx->mlx, game->texture->east->image);
+	mlx_destroy_image(game->mlx->mlx, game->texture->west->image);
+	mlx_destroy_image(game->mlx->mlx, game->texture->sprite->image);
 	free(game->texture->north);
 	free(game->texture->south);
 	free(game->texture->east);
@@ -66,9 +60,9 @@ static void	free_texture_exit3(t_game *game)
 	exit(0);
 }
 
-void	free_texture_exit(t_game *game)
+void	free_raycast_exit(t_game *game)
 {
-	free_texture_exit1(game);
-	free_texture_exit2(game);
-	free_texture_exit3(game);
+	mlx_do_key_autorepeaton(game->mlx->mlx);
+	free_raycast_exit1(game);
+	free_raycast_exit2(game);
 }

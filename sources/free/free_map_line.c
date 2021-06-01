@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:44:55 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/14 14:50:19 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:42:05 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_map_line(char *s, int i, t_game *game)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	free(game->param->north);

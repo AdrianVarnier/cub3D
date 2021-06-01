@@ -6,14 +6,14 @@
 /*   By: avarnier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:16:37 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/07 15:27:53 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:19:56 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef struct	s_param
+typedef struct s_param
 {
 	int			width;
 	int			height;
@@ -37,7 +37,7 @@ typedef struct	s_param
 	int			ceil_presence;
 }				t_param;
 
-typedef struct	s_player
+typedef struct s_player
 {
 	double		x;
 	double		y;
@@ -49,7 +49,7 @@ typedef struct	s_player
 	double		rotation_speed;
 }				t_player;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	double			texturex;
 	double			texturey;
@@ -61,7 +61,7 @@ typedef struct	s_texture
 	struct s_image	*sprite;
 }				t_texture;
 
-typedef struct	s_image
+typedef struct s_image
 {
 	void		*image;
 	char		*data;
@@ -72,13 +72,13 @@ typedef struct	s_image
 	int			height;
 }				t_image;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void		*mlx;
 	void		*window;
 }				t_mlx;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	double	*x;
 	double	*y;
@@ -89,7 +89,7 @@ typedef struct	s_sprite
 	int		left;
 }				t_sprite;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	double				*wall_distance;
 	struct s_param		*param;

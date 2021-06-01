@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/09 00:32:14 by avarnier          #+#    #+#             */
-/*   Updated: 2021/03/26 18:16:02 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:23:39 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ static int	ray_down(double angle)
 
 static int	ray_left(double angle)
 {
-	if ((angle > M_PI / 2 && angle < 3 * M_PI / 2 && tan(angle) > 0) ||
-	((angle > 3 * M_PI / 2 || angle < M_PI / 2) && tan(angle) < 0))
+	if ((angle > M_PI / 2 && angle < 3 * M_PI / 2 && tan(angle) > 0)
+		|| ((angle > 3 * M_PI / 2 || angle < M_PI / 2) && tan(angle) < 0))
 		return (-1);
 	return (1);
 }
 
-double		check_horizontal_intersection2(t_param *param, t_player *player,
+double	check_horizontal_intersection2(t_param *param, t_player *player,
 			double angle)
 {
 	double	wallx;
@@ -56,12 +56,12 @@ double		check_horizontal_intersection2(t_param *param, t_player *player,
 	stepx = TILE_SIZE / tan(angle) * ray_left(angle);
 	offset = ray_up2(angle);
 	while (wallx >= 0 && wallx < (param->map_width + 2) * TILE_SIZE
-	&& wally >= 0 && wally < (param->map_height + 2) * TILE_SIZE)
+		&& wally >= 0 && wally < (param->map_height + 2) * TILE_SIZE)
 	{
 		if (param->map[(int)floor((wally - offset) / TILE_SIZE)]
-		[(int)floor(wallx / TILE_SIZE)] == '1')
-			return
-			(sqrt(pow(player->x - wallx, 2) + pow(player->y - wally, 2)));
+			[(int)floor(wallx / TILE_SIZE)] == '1')
+			return (
+				sqrt(pow(player->x - wallx, 2) + pow(player->y - wally, 2)));
 		wallx = wallx + stepx;
 		wally = wally + stepy;
 	}

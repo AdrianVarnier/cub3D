@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:45:38 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/16 02:18:30 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/01 17:41:42 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	free_param_error1(t_game *game)
 	free(game->param);
 }
 
-void		free_param_error(char *s, t_game *game)
+void	free_param_error(char *s, t_game *game)
 {
 	free_param_error1(game);
 	free(game->texture->north);
