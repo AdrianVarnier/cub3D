@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 14:22:47 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/07 16:21:31 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:15:40 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	get_rotation_angle(t_param *param, t_player *player)
 	}
 }
 
-void		init_player(t_param *param, t_player *player)
+void	init_player(t_param *param, t_player *player)
 {
 	get_position(param, player);
 	player->turn_direction = 0;

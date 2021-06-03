@@ -6,7 +6,7 @@
 #    By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/27 01:02:57 by avarnier          #+#    #+#              #
-#    Updated: 2021/06/01 18:13:45 by avarnier         ###   ########.fr        #
+#    Updated: 2021/06/02 18:36:45 by avarnier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = 	sources/free/free_error.c \
 		sources/free/free_texture_exit.c \
 		sources/free/free_game.c \
 		sources/free/free_raycast_exit.c \
+		sources/free/free_sprite_exit.c \
 		sources/init/init_game.c \
 		sources/init/init_param.c \
 		sources/init/init_player.c \

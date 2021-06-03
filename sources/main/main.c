@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 00:51:58 by avarnier          #+#    #+#             */
-/*   Updated: 2021/05/17 02:13:03 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:22:06 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_strcmp(const char *s1, const char *s2)
 
 	i = 0;
 	while ((unsigned char)s1[i] == (unsigned char)s2[i]
-	&& s1[i] != '\0' && s2[i] != '\0')
+		&& s1[i] != '\0' && s2[i] != '\0')
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
@@ -51,15 +51,15 @@ static void	check_window(t_param *param, t_game *game)
 static int	image_loop(t_game *game)
 {
 	game->image->image = mlx_new_image(game->mlx->mlx,
-	game->param->width, game->param->height);
+			game->param->width, game->param->height);
 	game->image->data = mlx_get_data_addr(game->image->image,
-	&game->image->bpp, &game->image->ls, &game->image->endian);
+			&game->image->bpp, &game->image->ls, &game->image->endian);
 	movement(game);
 	raycast(game);
 	render_sprite(game);
 	free(game->wall_distance);
 	mlx_put_image_to_window(game->mlx->mlx,
-	game->mlx->window, game->image->image, 0, 0);
+		game->mlx->window, game->image->image, 0, 0);
 	mlx_destroy_image(game->mlx->mlx, game->image->image);
 	return (0);
 }
@@ -69,14 +69,14 @@ static void	save_exit(t_game *game, char *argv)
 	init_game(&game);
 	parse(argv, game);
 	init_player(game->param, game->player);
-	init_sprite(game->sprite, game->param);
+	init_sprite(game->sprite, game->param, game);
 	game->mlx->mlx = mlx_init();
 	init_texture(game);
 	check_window(game->param, game);
 	game->image->image = mlx_new_image(game->mlx->mlx,
-	game->param->width, game->param->height);
+			game->param->width, game->param->height);
 	game->image->data = mlx_get_data_addr(game->image->image,
-	&game->image->bpp, &game->image->ls, &game->image->endian);
+			&game->image->bpp, &game->image->ls, &game->image->endian);
 	raycast(game);
 	render_sprite(game);
 	free(game->wall_distance);
@@ -85,7 +85,7 @@ static void	save_exit(t_game *game, char *argv)
 	free_save(game);
 }
 
-int			main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_game	*game;
 
@@ -100,12 +100,12 @@ int			main(int argc, char **argv)
 	init_game(&game);
 	parse(argv[1], game);
 	init_player(game->param, game->player);
-	init_sprite(game->sprite, game->param);
+	init_sprite(game->sprite, game->param, game);
 	game->mlx->mlx = mlx_init();
 	init_texture(game);
 	check_window(game->param, game);
 	game->mlx->window = mlx_new_window(game->mlx->mlx,
-	game->param->width, game->param->height, "cub3d");
+			game->param->width, game->param->height, "cub3d");
 	image_loop(game);
 	mlx_hook(game->mlx->window, 2, 1L << 0, press_input, game);
 	mlx_hook(game->mlx->window, 3, 1L << 1, released_input, game->player);

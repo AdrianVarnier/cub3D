@@ -6,7 +6,7 @@
 /*   By: avarnier <avarnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 02:38:40 by avarnier          #+#    #+#             */
-/*   Updated: 2021/06/01 18:00:03 by avarnier         ###   ########.fr       */
+/*   Updated: 2021/06/02 18:34:16 by avarnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int		free_cross_exit(t_game *game);
 void	free_texture_exit(t_game *game);
 void	free_game(t_game *game);
 void	free_raycast_exit(t_game *game);
+void	free_sprite_exit(t_game *game);
 
 #endif
